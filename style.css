@@ -4,14 +4,14 @@
 }
 
 body {
-    background: #003a3a;    
+    background: #003a3a;
 }
 
 .header {
     width: 100%;
     height: 90px;
     background-color: #003a3a;
-    border-bottom:  2px solid black;
+    border-bottom: 2px solid black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +30,7 @@ body {
     width: 30%;
     display: flex;
     justify-content: center;
-   
+
 }
 
 
@@ -42,7 +42,7 @@ body {
     list-style: none;
     margin: 10px;
     padding: 10px;
-}   
+}
 
 .nav-header ul a {
     color: white;
@@ -50,7 +50,7 @@ body {
 }
 
 
-.titulo-principal  {
+.titulo-principal {
     height: 90px;
     font-size: 5em;
     color: white;
@@ -62,8 +62,8 @@ body {
 
 
 main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
    
 /* Primera prueba a ver como queda en forma de acostada de rectangulo 
@@ -73,13 +73,18 @@ main {
     background: #48B5B5;
     margin: auto;
     border-radius: 50px; 
+    border-radius: 20px;
 }
-
 
 .img-bandera {
     width: 100%;;
     height: 80%;  
     border-radius: 50px;
+    width: 100%;
+    height: 80%;
+    position: static;
+    border: 5px solid black;
+    border-radius: 20px;
 }
 
 .card-contenido-paises {
@@ -90,6 +95,20 @@ main {
     bottom: 41%;
     border-bottom-left-radius:50px;
     border-bottom-right-radius: 50px;
+    border-top: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.img-bandera:hover {
+    position: relative;
+    bottom: 30%;
+}
+
+
+.card-contenido-paises {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +118,11 @@ main {
 
 
 .titulo-card-paises {
+
     border-bottom: 2px solid black;
+
+    background: red;
+
     margin: 10px;
 }
 
@@ -109,6 +132,7 @@ main {
     margin: 10px;
 }
 
+<<<<<<< HEAD
 .boton-conocer-mas {
     display: inline-block;
     width: 15em;
@@ -193,6 +217,11 @@ main {
     
 }
 
+/* .boton-conocer-mas {
+    background-color: #48B5B5;
+} */
+
+
 /*
 .titulo {
     width: 50%;
@@ -231,5 +260,3 @@ main {
     margin-left: 4em;
     
 }
-
-
