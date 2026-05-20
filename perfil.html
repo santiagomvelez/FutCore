@@ -1,39 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil - Futbol11</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
-<body>
-    <header>
+<body class="fondo-principal texto-blanco">
 
-        <nav>
+    <header class="header fondo-secundario">
+        <div class="logo"></div>
+        <nav class="nav-header">
             <ul>
-                <li><a href="">Principal</a></li>
-                <li> <a href=""> Juegos</a></li>
-                <li> <a href="">Equipos</a></li>
-                <li> <a href="">Acceder</a></li>
-                <li><a href="">Registrarse</a></li>
+                <li><a href="index.html">Principal</a></li>
+                <li><a href="#">Juegos</a></li>
+                <li><a href="#">Equipos</a></li>
+                <li><a href="login.html">Acceder</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <div class="perfil-container">
-            <div class="perfil-header">
-                <h2>Perfil de Usuario</h2>
+    <main class="contenedor relleno-vertical-20 relleno-horizontal-10 caja-flexible flex-columna brecha-20">
+
+        <!-- ======================= -->
+        <!-- SECCIÓN: DATOS DE PERFIL -->
+        <!-- ======================= -->
+        <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
+            <!-- Cabecera del Perfil -->
+            <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
+                <h2 class="texto-muy-grande texto-esmeralda">Perfil de Usuario</h2>
             </div>
-            
-            <div class="perfil-grid">
-                <section>
-                    <h3 class="titulo titulo-izq">Mis Datos</h3>
-                    <div class="form-group"><label>Nombre: Juan Pérez</label></div>
-                    <div class="form-group"><label>Email: juan.perez@futbol.com</label></div>
+
+            <!-- Grilla Principal (Datos y Preferencias) -->
+            <div class="caja-flexible envolver-flex brecha-20 estirar">
+
+                <!-- Mis Datos -->
+                <article
+                    class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris escala-hover">
+                    <h3
+                        class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                        Mis Datos</h3>
+                    <div class="caja-flexible flex-columna brecha-10 margen-arriba-10 text-center">
+                        <div class="caja-flexible flex-columna">
+                            <span class="texto-secundario texto-chico margen-abajo-5">Nombre y Apellido</span>
+                            <span class="texto-mediano texto-blanco">Juan Pérez</span>
+                        </div>
+                        <div class="caja-flexible flex-columna">
+                            <span class="texto-secundario texto-chico margen-abajo-5">Correo Electrónico</span>
+                            <span class="texto-mediano texto-blanco">juan.perez@futbol.com</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Preferencias -->
+                <article
+                    class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris escala-hover">
+                    <h3
+                        class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                        Preferencias Futbolísticas</h3>
+                    <div class="caja-flexible flex-columna brecha-10 margen-arriba-10 text-center">
+                        <div class="caja-flexible flex-columna">
+                            <span class="texto-secundario texto-chico margen-abajo-5">Posición en la cancha</span>
+                            <span class="texto-mediano texto-blanco">Mediocampista Ofensivo</span>
+                        </div>
+                        <div class="caja-flexible flex-columna">
+                            <span class="texto-secundario texto-chico margen-abajo-5">Liga Favorita</span>
+                            <span class="texto-mediano texto-blanco">Premier League</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
-        
+
+        <!-- ======================= -->
+        <!-- SECCIÓN: EQUIPOS FAVORITOS -->
+        <!-- ======================= -->
+        <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
+            <!-- Cabecera de Favoritos -->
+            <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
+                <h2 class="texto-muy-grande texto-esmeralda">Mis Equipos Favoritos</h2>
+            </div>
+
+            <div class="cuadricula-favoritos brecha-20">
+
+                <!-- Equipo 1: Boca Juniors -->
+                <article
+                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
+                    <!-- Imagen de internet (Escudo de Boca) -->
+                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/250px-CABJ70.png"
+                            alt="Boca Juniors" class="ancho-100 alto-100"
+                            style="object-fit: contain; background: #fff; padding: 10px;">
+                    </div>
+                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
+                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Boca Juniors</h4>
+                        <p class="texto-secundario texto-chico margen-abajo-15">Liga Profesional de Fútbol (ARG)</p>
+                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
+                    </div>
+                </article>
+
+                <!-- Equipo 2: Flamengo -->
+                <article
+                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
+                    <!-- Imagen de internet (Escudo del Flamengo) -->
+                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Flamengo-RJ_%28BRA%29.png"
+                            alt="Flamengo" class="ancho-100 alto-100"
+                            style="object-fit: contain; background: #fff; padding: 10px;">
+                    </div>
+                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
+                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Flamengo</h4>
+                        <p class="texto-secundario texto-chico margen-abajo-15">Brasileirão (BRA)</p>
+                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
+                    </div>
+                </article>
+
+                <!-- Equipo 3: Vélez Sarsfield -->
+                <article
+                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
+                    <!-- Imagen de internet (Escudo de Vélez) -->
+                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Escudo_de_V%C3%A9lez.jpg/960px-Escudo_de_V%C3%A9lez.jpg"
+                            alt="Vélez Sarsfield" class="ancho-100 alto-100"
+                            style="object-fit: contain; background: #fff; padding: 10px;">
+                    </div>
+                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
+                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Vélez Sarsfield</h4>
+                        <p class="texto-secundario texto-chico margen-abajo-15">Liga Profesional de Fútbol (ARG)</p>
+                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
     </main>
 
 </body>

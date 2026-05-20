@@ -1,10 +1,35 @@
 * {
+
     padding: 0;
     margin: 0;
 }
 
+:root {
+    --color-esmeralda: #018a73;
+    --color-azulado: #1b7d6d;
+    --color-oscuro: #1f4a43;
+    --color-principal: #203330;
+    --color-gris: #2a3331;
+    --color-blanco: #ffffff;
+    --color-secundario: #cbd5e0;
+}
+
 body {
+    font-family: 'Roboto', sans-serif;
     background: #003a3a;
+    color: #ffffff;
+}
+
+
+h1,
+h2,
+h3,
+.titulo,
+.boton,
+nav a {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+
 }
 
 .header {
@@ -259,4 +284,257 @@ main {
     margin-top: 1.5em;
     margin-left: 4em;
     
+}
+
+/* --- CLASES DE UTILIDAD Y COMPONENTES EN ESPAÑOL --- */
+
+
+body.fondo-principal {
+    background-color: var(--color-principal);
+}
+
+/* Colores de Fondo */
+.fondo-secundario {
+    background-color: var(--color-azulado);
+}
+
+.fondo-oscuro {
+    background-color: var(--color-oscuro);
+}
+
+.fondo-gris {
+    background-color: var(--color-gris);
+}
+
+/* Colores de Texto */
+.texto-esmeralda {
+    color: var(--color-esmeralda);
+}
+
+.texto-blanco {
+    color: var(--color-blanco);
+}
+
+.texto-secundario {
+    color: var(--color-secundario);
+}
+
+/* Tipografía */
+.texto-centrado {
+    text-align: center;
+}
+
+.texto-chico {
+    font-size: 0.875rem;
+}
+
+.texto-mediano {
+    font-size: 1.125rem;
+}
+
+.texto-grande {
+    font-size: 1.25rem;
+}
+
+.texto-muy-grande {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+/* Bordes */
+.borde-inf-azulado {
+    border-bottom: 2px solid var(--color-azulado);
+}
+
+.borde-sup-azulado {
+    border-top: 2px solid var(--color-azulado);
+}
+
+.borde-gris {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Layout & Contenedores */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Flexbox */
+.caja-flexible {
+    display: flex;
+}
+
+.flex-columna {
+    display: flex;
+    flex-direction: column;
+}
+
+.envolver-flex {
+    flex-wrap: wrap;
+}
+
+.alinear-centro {
+    align-items: center;
+}
+
+.estirar {
+    align-items: stretch;
+}
+
+.crecer-1 {
+    flex: 1;
+}
+
+/* Grids */
+.cuadricula-favoritos {
+    display: grid;
+}
+
+.cuadricula-favoritos {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Espaciados */
+.brecha-10 {
+    gap: 10px;
+}
+
+.brecha-20 {
+    gap: 20px;
+}
+
+.margen-auto {
+    margin: auto;
+}
+
+.margen-sup-auto {
+    margin-top: auto;
+}
+
+.margen-arriba-10 {
+    margin-top: 10px;
+}
+
+.margen-abajo-5 {
+    margin-bottom: 5px;
+}
+
+.margen-abajo-10 {
+    margin-bottom: 10px;
+}
+
+.margen-abajo-15 {
+    margin-bottom: 15px;
+}
+
+.margen-abajo-20 {
+    margin-bottom: 20px;
+}
+
+.relleno-15 {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.relleno-20 {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.relleno-vertical-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.relleno-horizontal-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.relleno-arriba-20 {
+    padding-top: 20px;
+}
+
+.relleno-abajo-5 {
+    padding-bottom: 5px;
+}
+
+.relleno-abajo-10 {
+    padding-bottom: 10px;
+}
+
+.relleno-abajo-20 {
+    padding-bottom: 20px;
+}
+
+/* Dimensionamiento */
+.ancho-100 {
+    width: 100%;
+}
+
+.alto-100 {
+    height: 100%;
+}
+
+.alto-150 {
+    height: 150px;
+}
+
+.ancho-minimo-300 {
+    min-width: 300px;
+}
+
+/* Extras UI */
+.radio-mediano {
+    border-radius: 8px;
+}
+
+.radio-grande {
+    border-radius: 12px;
+}
+
+.sombra {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ocultar-excedente {
+    overflow: hidden;
+}
+
+/* Componentes */
+.imagen-cubrir img {
+    object-fit: cover;
+}
+
+.boton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+}
+
+.boton-esmeralda {
+    background-color: var(--color-esmeralda);
+    color: var(--color-blanco);
+}
+
+.boton-esmeralda:hover {
+    background-color: var(--color-azulado);
+}
+
+.escala-hover {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.escala-hover:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-esmeralda);
 }
