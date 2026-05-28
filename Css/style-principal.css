@@ -12,6 +12,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -30,11 +31,16 @@ body {
 }
 
 
-.logo {
-    width: 50px;
-    height: 50px;
-    background: black;
-    margin: 20px;
+.logo-contenedor {
+    width: 10%;
+    height: 100%;   
+}
+
+
+.logo-header {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .nav-header {
@@ -78,190 +84,30 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 60px;
     padding: 50px;
+    padding-bottom: 0;
 }
    
-
-/* Prueba 1 forma de acostada de rectangulo */
 .card-paises {
     width: 450px;
     height: 300px;
-    background: var(--color-oscuro);
-    margin: auto;
-    margin-top: 20%;
-    border-radius: 20px;
-    color: white;
-    overflow: hidden;
-    transition: transform 0.4s ease;
-}
-
-.card-paises:hover {
-    transform: translateY(-10%);
-}
-
-.img-bandera {
-    width: 100%;
-    height: 80%;  
-    object-fit: cover;
-    border-radius: 20px;
-}
-
-.card-contenido-paises {
-    width: 100%;
-    height: 50%;
-    background: var(--color-oscuro);
-    position: relative;
-    bottom: 34%;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius: 20px;    
-    border-top: none;
-}
-
-.card-contenido-paises {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.titulo-card-paises {
-    width: 50%;
-    text-align: center;
-    border-bottom: 2px solid white;
-    margin: 10px;
-}
-
-.card-info-paises-1 {
-    width: 50%;
-    text-align: center;
-    margin: 10px;
-    border-bottom: 2px solid white ;
- }
-
-.card-info-paises-2 {
-    width: 50%;
-    text-align: center;
-    margin: 10px;
-     border-bottom: 2px solid white;
-}
-
-.boton-conocer-mas {
-    display: inline-block;
-    width: 8em;
-    height: 2em;
-   background-color: var(--color-esmeralda);
-   color: var(--color-blanco);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;    
-    position: relative;
-    left: 58%;
-    bottom: 60%;     
-} 
-
-
-
-/* Forma 2 tipo card
-
-.card-paises {
-    width: 60%;
-    height: 100%;
-    margin: auto;
-    border-radius:25px; 
-    border: 5px solid black;
-
-    transition: transform 0.4s ease;
-}
-
-.img-bandera {
-    width: 100%;
-    height: 50%;  
-    border-radius: 20px 20px 0 0;
-    object-fit: cover;
-    display: block;
-}
-
-.card-paises:hover {
-    transform: translateY(-10%);
-}
-
-.card-contenido-paises {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    height: 50%;
-    background: var(--color-oscuro);
-    color: var(--color-blanco);
-    border-radius: 0 0 20px 20px;
-}
-
-.titulo-card-paises {
-    width:60%;
-    border-bottom: 2px solid white;
-    margin: 10px;
-    margin-top: 0;
-    padding: 5px;
-    display: flex; 
-    justify-content: flex-start;
-    font-size: 1.5em;
-}
-
-.card-info-paises-1 {
-    width: 60%;
-    border-bottom: 2px solid white;
-    margin: 10px;
-    display: flex; 
-    justify-content: flex-start;
-    font-size: 1em;
-}
-
-.card-info-paises-2 {
-    width: 60%;
-    border-bottom: 2px solid white;
-    margin: 10px;
-    display: flex; 
-    justify-content: flex-start;
-    font-size: 1em;
-}
-
-
-.boton-conocer-mas {
-    display: inline-block;
-    width: 40%;
-    background: var(--color-esmeralda) ;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    align-self: flex-end;
-    margin-top: auto;
-    margin-bottom: 20px;
-    margin-right: 20px;    
-}   */
-
-
-
-/* Forma 3 Solo bandera com hover que tapa la bandera y muestra contenido 
-.card-paises {
-    width: 450px;
-    height: 300px;
-    background: var(--color-oscuro);
+    background: var(--color-blanco);
     margin: auto;
     position: relative;
     overflow: hidden;
     margin-top: 5%;
     border-radius: 20px;
-    color: white;
-    
+    border: 5px solid var(--color-blanco);
+    color: var(--color-blanco);
+
 }
 
 .img-bandera {
     width: 100%;
-    height: 100%;  
-    object-fit: cover;
-    border-radius: 20px 20px 0 0;
+    height: 80%;  
+    object-fit: contain;
+    margin-top: 20px;
+    
+    
 }
 
 .card-contenido-paises {
@@ -271,14 +117,13 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    border-radius: 0 0 20px 20px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 10px;
     transform: translateY(100%);
     transition: transform 0.5s ease;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .card-paises:hover .card-contenido-paises {
@@ -325,9 +170,29 @@ main {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    text-align: center;      
+    text-align: center;
 }
-*/
 
 
+.cotenedor-footer {
+    width: 100vw;
+    height: 50vh;
+    background: linear-gradient(to bottom, var(--color-principal), var(--color-esmeralda));
+    margin-top:20px;
+}
+
+
+.contenedor-logo {
+    width: 15%;
+    height: 100%;
+    
+    
+}
+
+
+.logo-footer {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
