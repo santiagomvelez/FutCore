@@ -1,0 +1,92 @@
+/* --- CLASES ESPECÍFICAS PARA CREAR CUENTA E INICIAR SESIÓN --- */
+
+.contenedor-formulario {
+    max-width: 550px;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    animation: aparecer-formulario 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aparecer-formulario {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-formulario {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 2px solid var(--color-azulado);
+    border-radius: 8px;
+    background-color: var(--color-gris);
+    color: var(--color-blanco);
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-formulario:focus {
+    outline: none;
+    border-color: var(--color-esmeralda);
+    background-color: var(--color-principal);
+    box-shadow: 0 0 8px rgba(1, 138, 115, 0.6);
+    transform: translateY(-2px);
+}
+
+.label-formulario {
+    display: block;
+    color: var(--color-secundario);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.boton.boton-esmeralda {
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.boton.boton-esmeralda:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(1, 138, 115, 0.4);
+}
+
+.boton.boton-esmeralda:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(1, 138, 115, 0.4);
+}
+
+.justificar-centro {
+    justify-content: center;
+}
+
+.enlace-volver {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--color-azulado);
+    color: var(--color-esmeralda);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s ease;
+}
+
+.enlace-volver:hover {
+    background-color: var(--color-gris);
+    color: var(--color-blanco);
+}

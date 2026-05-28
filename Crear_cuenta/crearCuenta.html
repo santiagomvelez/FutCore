@@ -1,78 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
+    <title>Registro de Usuario - Futbol11</title>
+    <!-- Estilos compartidos (Utilidades) -->
+    <link rel="stylesheet" href="../Css/style-perfil.css">
+    <!-- Estilos Específicos del Login/Registro -->
+    <link rel="stylesheet" href="../Css/style-login.css">
+    <!-- Mismas fuentes que el Perfil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
-<body style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #004F4F;
-    font-family: sans-serif;
-">
 
-    <a href="#" style="
-        position: fixed;
-        top: 16px;
-        left: 16px;
-        background-color: #1A8282;
-        color: #8BE8E8;
-        text-decoration: none;
-        border: none;
-        border-radius: 6px;
-        padding: 8px 16px;
-        font-size: 14px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    ">&#8592; Inicio</a>
+<body class="fondo-principal texto-blanco caja-flexible flex-columna alinear-centro justificar-centro"
+    style="min-height: 100vh;">
 
-    <div style="
-        text-align: center;
-        margin-bottom: 16px;">
-        <h1 style="text-transform: uppercase; color: #48B5B5; margin-bottom: 4px;">Crear cuenta</h1>
-        <p style="font-size: 13px; color: #8BE8E8;">Completá tus datos para registrarte</p>
-    </div>
+    <!-- Botón Volver Emulando NavBar Inicial pero más limpio para el log/registro -->
+    <a href="../index.html" class="enlace-volver">&#8592; Inicio</a>
 
-    <div style="
-        border: 1px solid #48B5B5;
-        padding: 40px 50px;
-        border-radius: 15px;
-        background-color: #1A8282;
-    ">
+    <main class="contenedor relleno-20 caja-flexible justificar-centro alinear-centro">
 
-        <form action="#" method="POST">
+        <div class="fondo-oscuro radio-grande sombra borde-sup-azulado contenedor-formulario">
 
-            <label for="username" style="display: block; color: #8BE8E8; margin-bottom: 4px;">Nombre de usuario:</label>
-            <input type="text" id="username" name="username" required><br><br>
-
-            <label for="email" style="display: block; color: #8BE8E8; margin-bottom: 4px;">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="password" style="display: block; color: #8BE8E8; margin-bottom: 4px;">Contraseña:</label>
-            <input type="password" id="password" name="password" required><br><br>
-
-            <div style="
-                text-align: center;">
-                <button type="submit" style="background-color: #004F4F; color: white; border: none; border-radius: 4px; padding: 8px 24px; cursor: pointer;">Registrarse</button>
+            <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
+                <h1 class="texto-muy-grande texto-esmeralda">Crear cuenta</h1>
+                <p class="texto-secundario texto-chico">Completá tus datos para registrarte</p>
             </div>
 
-        </form>
+            <form action="#" method="POST" class="caja-flexible flex-columna">
 
-        <p style="text-align: center;
-            margin-top: 14px;
-            font-size: 13px;">
-            <span style="color: #004F4F;">¿Ya tenés cuenta?</span>
-            <a href="iniciarSesion.html" style="color: #8BE8E8; text-decoration: none;">Iniciá sesión</a>
-        </p>
+                <div>
+                    <label for="username" class="label-formulario">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" class="input-formulario" required>
+                </div>
 
-    </div>
+                <div>
+                    <label for="email" class="label-formulario">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" class="input-formulario" required>
+                </div>
+
+                <div>
+                    <label for="password" class="label-formulario">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="input-formulario" required>
+                </div>
+
+                <button type="submit" class="boton boton-esmeralda ancho-100 margen-arriba-10">Registrarse</button>
+
+            </form>
+
+            <p class="texto-centrado texto-chico margen-arriba-10">
+                <span class="texto-secundario">¿Ya tenés cuenta?</span>
+                <a href="../Inicio_sesion/iniciarSesion.html" class="texto-esmeralda">Iniciá sesión</a>
+            </p>
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>
