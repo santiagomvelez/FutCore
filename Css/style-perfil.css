@@ -74,7 +74,9 @@ nav a {
     text-decoration: none;
 }
 
-
+.nav-header a:hover {
+    color: var(--color-oscuro);
+}
 
 
 body.fondo-principal {
