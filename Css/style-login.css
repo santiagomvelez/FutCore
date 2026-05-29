@@ -1,4 +1,3 @@
-/* --- CLASES ESPECÍFICAS PARA CREAR CUENTA E INICIAR SESIÓN --- */
 
 .contenedor-formulario {
     max-width: 550px;
@@ -75,7 +74,7 @@
     top: 20px;
     left: 20px;
     background-color: var(--color-azulado);
-    color: var(--color-esmeralda);
+    color: var(--color-blanco);
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 6px;
