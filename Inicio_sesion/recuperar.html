@@ -4,72 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fut Core - Crear Cuenta</title>
-    <!-- Estilos compartidos (Utilidades) -->
+    <title>Fut Core - Recuperar Contraseña</title>
     <link rel="stylesheet" href="../Css/style-perfil.css">
-    <!-- Estilos Específicos del Login/Registro -->
     <link rel="stylesheet" href="../Css/style-login.css">
-    <!-- Mismas fuentes que el Perfil -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="shortcut icon" href="../img/Logo/logo-favicon.png" type="image/x-icon">
 </head>
 
 <body class="fondo-principal texto-blanco caja-flexible flex-columna alinear-centro justificar-centro"
     style="min-height: 100vh;">
 
-    <!-- Botón Volver Emulando NavBar Inicial pero más limpio para el log/registro -->
-    <a href="../index.html" class="enlace-volver">&#8592; Inicio</a>
+    <!-- Botón Volver -->
+    <a href="iniciarSesion.html" class="enlace-volver">&#8592; Iniciar Sesión</a>
 
     <main class="contenedor relleno-20 caja-flexible justificar-centro alinear-centro">
 
         <div class="fondo-oscuro radio-grande sombra borde-sup-azulado contenedor-formulario">
 
             <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
-                <h1 class="texto-muy-grande texto-esmeralda">Crear cuenta</h1>
-                <p class="texto-secundario texto-chico">Completá tus datos para registrarte</p>
+                <h1 class="texto-muy-grande texto-esmeralda">Recuperar Contraseña</h1>
+                <p class="texto-secundario texto-chico">Ingresá tu correo electrónico y te enviaremos un enlace para
+                    restablecer tu contraseña</p>
             </div>
 
             <form action="#" method="POST" class="caja-flexible flex-columna">
 
                 <div>
-                    <label for="username" class="label-formulario">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username" class="input-formulario" required>
-                </div>
-
-                <div>
                     <label for="email" class="label-formulario">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" class="input-formulario" required>
+                    <input type="email" id="email" name="email" class="input-formulario"
+                        placeholder="ejemplo@correo.com" required>
                 </div>
 
-                <div>
-                    <label for="password" class="label-formulario">Contraseña:</label>
-                    <input type="password" id="password" name="password" class="input-formulario" required>
-                </div>
-
-                <button type="submit" class="boton boton-esmeralda ancho-100 margen-arriba-10">Registrarse</button>
+                <button type="submit" class="boton boton-esmeralda ancho-100 margen-arriba-10">Enviar enlace de
+                    recuperación</button>
 
             </form>
 
             <p class="texto-centrado texto-chico margen-arriba-10">
-                <span class="texto-secundario">¿Ya tenés cuenta?</span>
-                <a href="../Inicio_sesion/iniciarSesion.html" class="texto-esmeralda">Iniciá sesión</a>
+                <span class="texto-secundario">¿Recordaste tu contraseña?</span>
+                <a href="iniciarSesion.html" class="texto-esmeralda">Iniciá sesión</a>
             </p>
 
             <p class="texto-centrado texto-chico margen-arriba-10">
-                <span class="texto-secundario">¿Olvidaste tu contraseña?</span>
-                <a href="../Inicio_sesion/recuperar.html" class="texto-esmeralda">Recuperala</a>
+                <span class="texto-secundario">¿No tenés cuenta?</span>
+                <a href="../Crear_cuenta/crearCuenta.html" class="texto-esmeralda">Registrate</a>
             </p>
 
         </div>
 
     </main>
 
-     <footer>
+
+    <footer>
         <div class="cotenedor-footer">
             <div class="contenedor-logo">
                 <img src="/img/Logo/Logo-Fotter.png" alt="logo-Footer" class="logo-footer">
