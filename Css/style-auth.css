@@ -1,0 +1,442 @@
+/* ============================================================
+   STYLE-AUTH.CSS
+   Estilos para auth.html — Toggle Switch + Carrusel Deslizante
+   ============================================================ */
+
+
+/* =============================================
+   1. LAYOUT DE LA PÁGINA
+   ============================================= */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #203330;
+}
+
+
+/* =============================================
+   2. TARJETA CONTENEDORA (.auth-container)
+   ============================================= */
+
+.auth-container {
+    background-color: #1f4a43;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    max-width: 480px;
+    width: 100%;
+    padding: 36px 36px 40px;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #1b7d6d;
+    animation: aparecer-auth 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aparecer-auth {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =============================================
+   3. TOGGLE SWITCH (Registro / Iniciar Sesión)
+   ============================================= */
+
+.auth-toggle {
+    display: flex;
+    position: relative;
+    background-color: #2a3331;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 28px;
+    border: 1px solid #1b7d6d;
+}
+
+/* Slider deslizante que se mueve detrás del botón activo */
+.auth-toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: linear-gradient(135deg, #018a73, #01a88c);
+    border-radius: 9px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.15, 0.27, 1.15);
+    box-shadow: 0 2px 10px rgba(1, 138, 115, 0.5);
+    z-index: 1;
+}
+
+/* Cuando el contenedor tiene la clase "login-activo", el slider se mueve a la derecha */
+.auth-container.login-activo .auth-toggle-slider {
+    transform: translateX(100%);
+}
+
+/* Botones del toggle */
+.auth-toggle-btn {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: #8a9e9b;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: color 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Texto del botón activo (visible sobre el slider verde) */
+.auth-toggle-btn.toggle-activo {
+    color: #ffffff;
+}
+
+.auth-toggle-btn:hover:not(.toggle-activo) {
+    color: #cbd5e0;
+}
+
+/* Iconos del toggle */
+.auth-toggle-btn i {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.auth-toggle-btn.toggle-activo i {
+    transform: scale(1.15);
+}
+
+
+/* =============================================
+   4. CARRUSEL DE PANELES (deslizamiento horizontal)
+   ============================================= */
+
+/* Wrapper que recorta el contenido: el panel oculto NO se asoma */
+.auth-carrusel-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.auth-carrusel {
+    display: flex;
+    width: 200%;           /* Espacio para 2 paneles lado a lado */
+    transition: transform 0.5s cubic-bezier(0.68, -0.05, 0.27, 1.05);
+    transform: translateX(0);  /* Muestra el primer panel (Registro) */
+}
+
+/* Cuando se activa Login, se desliza a la izquierda para mostrar el segundo panel */
+.auth-container.login-activo .auth-carrusel {
+    transform: translateX(-50%);
+}
+
+/* Cada panel ocupa el 50% del carrusel (= 100% del contenedor visible) */
+.auth-panel {
+    width: 50%;
+    flex-shrink: 0;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+
+
+/* =============================================
+   5. PANEL DE RECUPERAR CONTRASEÑA (superpuesto)
+   ============================================= */
+
+.auth-panel-recuperar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1f4a43;
+    padding: 36px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Cuando se activa el panel de recuperar */
+.auth-panel-recuperar.recuperar-activo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =============================================
+   6. ENCABEZADO DE CADA PANEL
+   ============================================= */
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #1b7d6d;
+}
+
+.auth-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #018a73;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.auth-subtitle {
+    font-size: 0.9rem;
+    color: #cbd5e0;
+    line-height: 1.4;
+}
+
+
+/* =============================================
+   7. FORMULARIO Y CAMPOS
+   ============================================= */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-campo {
+    margin-bottom: 18px;
+}
+
+.auth-label {
+    display: block;
+    color: #cbd5e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #1b7d6d;
+    border-radius: 8px;
+    background-color: #2a3331;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background-color 0.3s ease,
+                transform 0.2s ease;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: #018a73;
+    background-color: #203330;
+    box-shadow: 0 0 10px rgba(1, 138, 115, 0.5);
+    transform: translateY(-2px);
+}
+
+.auth-input::placeholder {
+    color: #6b7c7a;
+    font-style: italic;
+}
+
+
+/* =============================================
+   8. CLASE DE ERROR EN INPUTS (.input-error)
+   ============================================= */
+
+.input-error {
+    border-color: #e53e3e !important;
+    box-shadow: 0 0 8px rgba(229, 62, 62, 0.4) !important;
+    animation: sacudir 0.35s ease;
+}
+
+@keyframes sacudir {
+    0%, 100% { transform: translateX(0); }
+    20%      { transform: translateX(-5px); }
+    40%      { transform: translateX(5px); }
+    60%      { transform: translateX(-3px); }
+    80%      { transform: translateX(3px); }
+}
+
+
+/* =============================================
+   9. MENSAJES DE ERROR Y ÉXITO
+   ============================================= */
+
+.auth-mensaje-error {
+    color: #fc8181;
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.auth-mensaje-error.visible {
+    min-height: 1.4em;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background-color: rgba(229, 62, 62, 0.12);
+    border-radius: 6px;
+}
+
+.auth-mensaje-exito {
+    color: #68d391;
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.auth-mensaje-exito.visible {
+    min-height: 1.4em;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background-color: rgba(104, 211, 145, 0.12);
+    border-radius: 6px;
+}
+
+
+/* =============================================
+   10. BOTONES
+   ============================================= */
+
+.auth-botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.auth-btn {
+    flex: 1;
+    padding: 13px 20px;
+    font-size: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease,
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+}
+
+.auth-btn--principal {
+    background-color: #018a73;
+    color: #ffffff;
+}
+
+.auth-btn--principal:hover {
+    background-color: #01a88c;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(1, 138, 115, 0.45);
+}
+
+.auth-btn--principal:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(1, 138, 115, 0.3);
+}
+
+.auth-btn--limpiar {
+    background-color: #2a3331;
+    color: #cbd5e0;
+    border: 1px solid #1b7d6d;
+}
+
+.auth-btn--limpiar:hover {
+    background-color: #374140;
+    transform: translateY(-2px);
+}
+
+
+/* =============================================
+   11. ENLACES DE NAVEGACIÓN
+   ============================================= */
+
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-link-texto {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #cbd5e0;
+}
+
+.auth-link-texto span {
+    margin-right: 4px;
+}
+
+.auth-link {
+    color: #018a73;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #01c9a5;
+    text-shadow: 0 0 8px rgba(1, 138, 115, 0.5);
+}
+
+
+/* =============================================
+   12. RESPONSIVE
+   ============================================= */
+
+@media (max-width: 30em) {
+    .auth-container {
+        padding: 24px 18px 28px;
+        margin: 0 0.5rem;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
+
+    .auth-toggle-btn {
+        font-size: 0.82rem;
+        padding: 10px 10px;
+        gap: 5px;
+    }
+
+    .auth-botones {
+        flex-direction: column;
+    }
+
+    .auth-panel-recuperar {
+        padding: 24px 18px;
+    }
+}

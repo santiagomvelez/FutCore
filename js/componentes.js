@@ -36,11 +36,11 @@ function renderizarHeader(basePath = "") {
     const ul = document.createElement("ul");
 
     const enlaces = [
-        {texto: "Inicio" , href: basePath + "index.html"},
-        {texto: "Juegos", href: basePath + "juegos/juegos.html"},
-        {texto: "Ingresar", href: basePath + "inicio_sesion/login.html"},
-        {texto: "Perfil", href: basePath + "perfil/perfil.html"}
-    ]   
+        { texto: "Inicio", href: basePath + "index.html" },
+        { texto: "Juegos", href: basePath + "juegos/juegos.html" },
+        { texto: "Ingresar", href: basePath + "auth.html" },
+        { texto: "Perfil", href: basePath + "perfil/perfil.html" }
+    ]
 
     enlaces.forEach(link => {
         const li = document.createElement("li");
@@ -66,9 +66,9 @@ function renderizarHeader(basePath = "") {
 // Footer
 function renderizarFooter(basePath = "") {
     const footer = document.getElementById("footer-placeholder");
-    
 
-    const contenedorFooter =  document.createElement("div");
+
+    const contenedorFooter = document.createElement("div");
     contenedorFooter.classList.add("contenedor-footer");
 
 
@@ -84,13 +84,13 @@ function renderizarFooter(basePath = "") {
     contenedorRedes.classList.add("contenedor-redes");
 
     const tituloRedes = document.createElement("h4");
-    tituloRedes.innerHTML = "Nuestra Redes:"; 
+    tituloRedes.innerHTML = "Nuestra Redes:";
     contenedorRedes.appendChild(tituloRedes);
 
     const redesSociales = [
-        {icono: "fa-instagram", href: "#"},
-        {icono: "fa-twitter", href: "#"},
-        {icono: "fa-facebook", href: "#"}
+        { icono: "fa-instagram", href: "#" },
+        { icono: "fa-twitter", href: "#" },
+        { icono: "fa-facebook", href: "#" }
     ]
 
     redesSociales.forEach(red => {
@@ -109,23 +109,23 @@ function renderizarFooter(basePath = "") {
     contenedorLogo.appendChild(contenedorRedes);
     contenedorFooter.appendChild(contenedorLogo);
 
-    
-    const seccionFooter = [ 
+
+    const seccionFooter = [
         {
             titulo: "Menu",
 
-            enlaces:  [ 
-                {texto: "Principal", href: "#"},
-                {texto: "Juegos", href: "#"}     
+            enlaces: [
+                { texto: "Principal", href: "#" },
+                { texto: "Juegos", href: "#" }
             ]
         },
-        
+
         {
             titulo: "Contacto",
 
             enlaces: [
-                {texto: "Email", href: "#"},
-                {texto: "WhatsApp", href: "#"}
+                { texto: "Email", href: "#" },
+                { texto: "WhatsApp", href: "#" }
             ]
 
 
@@ -134,8 +134,8 @@ function renderizarFooter(basePath = "") {
         {
             titulo: "Ayuda",
             enlaces: [
-                {texto: "Preguntas Frecuentes", href: "#"},
-                {texto: "Soporte", href: "#"}
+                { texto: "Preguntas Frecuentes", href: "#" },
+                { texto: "Soporte", href: "#" }
             ]
         }
     ];
