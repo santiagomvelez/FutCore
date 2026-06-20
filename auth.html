@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iniciar sesión, registrarse o recuperar tu cuenta en Fut Core - Futbol11">
+    <title>Fut Core - Acceder</title>
+
+    <!-- Hojas de estilo del proyecto -->
+    <link rel="stylesheet" href="css/style-perfil.css">
+    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="css/style-auth.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo/logo-favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!--        BOTÓN VOLVER            -->
+    <!-- ============================== -->
+    <a href="index.html" class="enlace-volver">&#8592; Inicio</a>
+
+    <!-- ============================== -->
+    <!--   CONTENEDOR PRINCIPAL AUTH    -->
+    <!-- ============================== -->
+    <main class="auth-page">
+
+        <div class="auth-container" id="authContainer">
+
+            <!-- ====================================== -->
+            <!--     TOGGLE SWITCH (Registro / Login)   -->
+            <!-- ====================================== -->
+            <div class="auth-toggle" id="authToggle">
+                <div class="auth-toggle-slider" id="toggleSlider"></div>
+                <button type="button" class="auth-toggle-btn toggle-activo" id="btnToggleRegistro">
+                    <i class="fa-solid fa-user-plus"></i> Registro
+                </button>
+                <button type="button" class="auth-toggle-btn" id="btnToggleLogin">
+                    <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                </button>
+            </div>
+
+            <!-- ====================================== -->
+            <!--   CARRUSEL DE PANELES (se desliza)     -->
+            <!-- ====================================== -->
+            <div class="auth-carrusel-wrapper">
+                <div class="auth-carrusel" id="authCarrusel">
+
+                    <!-- ===== PANEL 1: REGISTRO ===== -->
+                    <div class="auth-panel" id="panelRegistro">
+
+                        <div class="auth-header">
+                            <h1 class="auth-title">Crear Cuenta</h1>
+                            <p class="auth-subtitle">Completá tus datos para registrarte</p>
+                        </div>
+
+                        <form id="formRegistro" class="auth-form" novalidate>
+
+                            <div class="auth-campo">
+                                <label for="regUsuario" class="auth-label">Nombre de usuario:</label>
+                                <input type="text" id="regUsuario" name="regUsuario" class="auth-input" required>
+                            </div>
+
+                            <div class="auth-campo">
+                                <label for="regEmail" class="auth-label">Correo electrónico:</label>
+                                <input type="email" id="regEmail" name="regEmail" class="auth-input" required>
+                            </div>
+
+                            <div class="auth-campo">
+                                <label for="regPassword" class="auth-label">Contraseña:</label>
+                                <input type="password" id="regPassword" name="regPassword" class="auth-input" required>
+                            </div>
+
+                            <p class="auth-mensaje-error" id="registroError"></p>
+                            <p class="auth-mensaje-exito" id="registroExito"></p>
+
+                            <button type="submit" class="auth-btn auth-btn--principal">Registrarse</button>
+
+                        </form>
+
+                    </div>
+                    <!-- FIN PANEL REGISTRO -->
+
+
+                    <!-- ===== PANEL 2: LOGIN ===== -->
+                    <div class="auth-panel" id="panelLogin">
+
+                        <div class="auth-header">
+                            <h1 class="auth-title">Iniciar Sesión</h1>
+                            <p class="auth-subtitle">Ingresá tus datos para continuar</p>
+                        </div>
+
+                        <form id="formLogin" class="auth-form" novalidate>
+
+                            <div class="auth-campo">
+                                <label for="loginUsuario" class="auth-label">Mail o Nombre de usuario:</label>
+                                <input type="text" id="loginUsuario" name="loginUsuario" class="auth-input" required>
+                            </div>
+
+                            <div class="auth-campo">
+                                <label for="loginPassword" class="auth-label">Contraseña:</label>
+                                <input type="password" id="loginPassword" name="loginPassword" class="auth-input" required>
+                            </div>
+
+                            <p class="auth-mensaje-error" id="loginError"></p>
+                            <p class="auth-mensaje-exito" id="loginExito"></p>
+
+                            <button type="submit" class="auth-btn auth-btn--principal">Ingresar</button>
+
+                        </form>
+
+                        <!-- Link a Recuperar contraseña -->
+                        <div class="auth-links">
+                            <p class="auth-link-texto">
+                                <span>¿Olvidaste tu contraseña?</span>
+                                <a href="#" class="auth-link" id="irARecuperar">Recuperala</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- FIN PANEL LOGIN -->
+
+                </div>
+            </div>
+            <!-- FIN CARRUSEL -->
+
+
+            <!-- ====================================== -->
+            <!--  PANEL 3: RECUPERAR CONTRASEÑA         -->
+            <!--  (Se superpone con animación propia)    -->
+            <!-- ====================================== -->
+            <div class="auth-panel-recuperar" id="panelRecuperar">
+
+                <div class="auth-header">
+                    <h1 class="auth-title">Recuperar Contraseña</h1>
+                    <p class="auth-subtitle">Ingresá tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña</p>
+                </div>
+
+                <form id="formRecuperar" class="auth-form" novalidate>
+
+                    <div class="auth-campo">
+                        <label for="recEmail" class="auth-label">Correo electrónico:</label>
+                        <input type="email" id="recEmail" name="recEmail" class="auth-input" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <p class="auth-mensaje-error" id="recuperarError"></p>
+                    <p class="auth-mensaje-exito" id="recuperarExito"></p>
+
+                    <div class="auth-botones">
+                        <button type="submit" class="auth-btn auth-btn--principal">Enviar enlace</button>
+                        <button type="reset" class="auth-btn auth-btn--limpiar">Limpiar</button>
+                    </div>
+
+                </form>
+
+                <div class="auth-links">
+                    <p class="auth-link-texto">
+                        <a href="#" class="auth-link" id="volverDeRecuperar"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+                    </p>
+                </div>
+
+            </div>
+            <!-- FIN PANEL RECUPERAR -->
+
+        </div>
+        <!-- FIN AUTH-CONTAINER -->
+
+    </main>
+
+
+    <!-- ============================== -->
+    <!--          FOOTER                -->
+    <!-- ============================== -->
+    <footer>
+        <div class="cotenedor-footer">
+            <div class="contenedor-logo">
+                <img src="img/logo/logo-footer.png" alt="logo-Footer" class="logo-footer">
+                <div class="contenedor-redes">
+                    <h4>Nuestras redes:</h4>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <section class="footer-seccion">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="#">Juegos</a></li>
+                    <li><a href="perfil/perfil.html">Mi Perfil</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-seccion">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href=""> Email</a></li>
+                    <li><a href="">WhatsApp</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-seccion">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="">Preguntas Frecuentes</a></li>
+                    <li><a href="">Soporte</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <p class="footer-copy">© 2026 FutCore. Todos los derechos reservados</p>
+    </footer>
+
+    <!-- ============================== -->
+    <!--    SCRIPT DE AUTENTICACIÓN     -->
+    <!-- ============================== -->
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
