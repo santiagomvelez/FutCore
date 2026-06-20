@@ -38,7 +38,7 @@ function renderizarHeader(basePath = "") {
     const enlaces = [
         { texto: "Inicio", href: basePath + "index.html" },
         { texto: "Juegos", href: basePath + "juegos/juegos.html" },
-        { texto: "Ingresar", href: basePath + "iniciar_sesion/iniciar-sesion.html" },
+        { texto: "Ingresar", href: basePath + "auth.html" },
         { texto: "Perfil", href: basePath + "perfil/perfil.html" }
     ]
 
