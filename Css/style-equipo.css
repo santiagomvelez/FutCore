@@ -7,13 +7,13 @@ main {
         "estadio plantel";
     grid-template-columns: 1fr 2fr;
     gap: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .contenedor-escudo {
-    width: 100%;
+    width: 50%;
     background-color: var(--color-blanco);
-    height: 18rem;
+    height: 15rem;
     border-radius: 20px;
     padding: 20px;
     grid-area: escudo;
@@ -23,24 +23,24 @@ main {
     width: 100%;
     height: 100%;
     object-fit: contain;    
+    
 }
-
 
 .titulo {
-    font-size: 5em;
+    font-size: 3.5em;
     grid-area: titulo;
-    text-align: left;
-    align-self: center;
 }
 
-
+.descripcion {
+    font-size: 1em;
+}
 
 .contenedor-estadio,
 .plantel {
     background-color: var(--color-blanco);
     color: var(--color-principal);
     border-radius: 16px;
-    overflow: hidden;             /* para que el header redondeado no se corte feo */
+    overflow: hidden;             
 }
 
 .contenedor-estadio h2,
@@ -54,7 +54,7 @@ main {
 
 .contenedor-img {
     width: 100%;
-    height: 220px;                /* 👈 le di una altura fija, antes era 50% de algo sin altura definida */
+    height: 500px;
 }
 
 .img-estadio {
@@ -88,4 +88,48 @@ main {
 
 .tabla-plantilla tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.03);
+}
+
+
+@media (max-width: 64em) {
+
+    main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        padding: 2em;
+    }
+
+    
+
+    .titulo {
+        font-size: 3em;
+        height: auto;
+        margin: 0.5em;
+        padding: 0.5em;
+    }
+}
+
+
+@media (max-width: 40em) {
+
+    main {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 1em;
+        margin-bottom: 5%;
+    }
+
+
+    .titulo {
+        font-size: 2em;
+        height: auto;
+        margin: 0.5em 0;
+        padding: 0.5em;
+    }
+
+
+    
+
+    
+
 }
