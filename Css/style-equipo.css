@@ -1,0 +1,91 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "escudo titulo"
+        "estadio plantel";
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.contenedor-escudo {
+    width: 100%;
+    background-color: var(--color-blanco);
+    height: 18rem;
+    border-radius: 20px;
+    padding: 20px;
+    grid-area: escudo;
+}
+
+.img-escudo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    
+}
+
+
+.titulo {
+    font-size: 5em;
+    grid-area: titulo;
+    text-align: left;
+    align-self: center;
+}
+
+
+
+.contenedor-estadio,
+.plantel {
+    background-color: var(--color-blanco);
+    color: var(--color-principal);
+    border-radius: 16px;
+    overflow: hidden;             /* para que el header redondeado no se corte feo */
+}
+
+.contenedor-estadio h2,
+.plantel h2 {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    margin: 0;
+    padding: 0.7em 1.2em;
+    font-size: 1.3em;
+}
+
+.contenedor-img {
+    width: 100%;
+    height: 220px;                /* 👈 le di una altura fija, antes era 50% de algo sin altura definida */
+}
+
+.img-estadio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenedor-estadio p {
+    margin: 0;
+    padding: 0.4em 1.2em;
+}
+
+/* --- Tabla del plantel --- */
+.tabla-plantilla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-plantilla th {
+    background-color: var(--color-azulado);
+    color: var(--color-blanco);
+    text-align: left;
+    padding: 0.6em 1em;
+}
+
+.tabla-plantilla td {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid var(--color-secundario);
+}
+
+.tabla-plantilla tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}

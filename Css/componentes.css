@@ -1,0 +1,282 @@
+:root {
+    --color-esmeralda: #018a73;
+    --color-azulado: #1b7d6d;
+    --color-oscuro: #1f4a43;
+    --color-principal: #203330;
+    --color-gris: #2a3331;
+    --color-blanco: #ffffff;
+    --color-secundario: #cbd5e0;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-principal);
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+
+
+h1,
+h2,
+h3,
+.titulo,
+.boton,
+nav a,
+footer {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* *HEADER* */
+.header {
+    width: 100%;
+    height: 10vh;
+    background-color: var(--color-azulado);
+    border-bottom: 5px solid var(--color-gris);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+.logo-contenedor {
+    width: 10%;
+    height: 100%;
+}
+
+
+.logo-header {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-hamburguesa {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+}
+
+
+
+.nav-header {
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.nav-header ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 1em;
+    gap: 1.5em;
+}
+
+.nav-header ul a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-header a:hover {
+    color: var(--color-oscuro);
+}
+
+
+/* *FOOTER* */
+footer {
+    width: 100%;
+    height: auto;
+    background: var(--color-esmeralda);
+    padding: 2rem 3rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.1rem;
+}
+
+
+.contenedor-footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+
+
+.contenedor-logo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5rem;
+}
+
+
+
+.logo-footer {
+    width: 30%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.contenedor-redes a {
+    color: white;
+    font-size: 1.5em;
+    margin-right: 0.8em;
+    transition: color 0.3s;
+}
+
+.footer-seccion {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+
+.footer-seccion h3 {
+    border-bottom: 1px solid var(--color-blanco);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+
+}
+
+
+.footer-seccion ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+
+.footer-seccion a {
+    text-decoration: none;
+    color: var(--color-blanco);
+
+}
+
+.footer-seccion a:hover,
+.contenedor-redes a:hover {
+    color: var(--color-oscuro);
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+    font-size: 0.8em;
+}
+
+/* *Responsive* */
+@media (max-width: 64em) {
+
+
+    .logo-contenedor {
+        width: 15%;
+    }
+
+    .contenedor-footer {
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+    }
+
+    .contenedor-logo {
+        grid-column: 1 / span 2;
+        gap: 2em;
+    }
+}
+
+
+@media (max-width: 40em) {
+
+    .logo-contenedor {
+        width: 20%;
+    }
+
+    .btn-hamburguesa {
+        display: block;
+        padding: 0 1em;
+    }
+
+    .nav-header {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 10vh;
+        left: 0;
+        background: var(--color-azulado);
+        padding: 1em;
+        z-index: 99;
+        height: auto;
+    }
+
+    .menu-toggle:checked~.nav-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-header ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+        height: auto;
+        padding: 0;
+    }
+
+    .contenedor-footer {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        margin: 1rem;
+    }
+
+    .contenedor-logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .logo-footer {
+        width: 50%;
+    }
+
+    footer {
+        font-size: 1em;
+        padding: 5% 5%;
+    }
+
+    .footer-copy {
+        font-size: 0.7em;
+        margin-top: 1.5em;
+    }
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fut Core - Principal</title>
     <link rel="stylesheet" href="css/style-principal.css">
+    <link rel="stylesheet" href="css/componentes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,7 +19,22 @@
 
 <body>
 
- <!--   <header class="header">
+
+
+    <header id="header-placeholder"> </header>
+
+
+    <div class="contenedor-titulo">
+        <h1 class="titulo-principal">Equipos</h1>
+    </div>
+
+
+    <main id="main-placeholder"> </main>
+
+
+    <footer id="footer-placeholder"></footer>
+
+    <!-- <header class="header">
 
         <div class="logo-contenedor">
             <img src="img/logo/logo-header.png" alt="logo-header" class="logo-header">
@@ -40,19 +56,7 @@
                 <li><a href="perfil/perfil.html" class="opcion6">Mi Perfil</a></li>
             </ul>
         </nav>
-
     </header>
-
-
--->
-
-    <header id="header-placeholder"> </header>
-
-
-    <div class="contenedor-titulo">
-        <h1 class="titulo-principal">Equipos</h1>
-    </div>
-
 
     <main>
 
@@ -68,9 +72,6 @@
             </div>
         </section>
 
-
-
-
         <section class="card-paises">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/960px-CABJ70.png"
                 alt="Escudo Boca" class="img-bandera">
@@ -83,8 +84,6 @@
             </div>
         </section>
 
-
-
         <section class="card-paises">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg/960px-Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg.png"
                 alt="Escudo Velez" class="img-bandera">
@@ -96,8 +95,6 @@
                     class="boton-conocer-mas">Ver mas...</a>
             </div>
         </section>
-
-
 
         <section class="card-paises">
             <img src="https://i.pinimg.com/1200x/46/77/37/4677374ecd7e30c68811186071db1c28.jpg" alt="Escudo Barcelona"
@@ -218,7 +215,7 @@
     </main> 
 
 
-    <!-- <footer>
+     <footer>
         <div class="cotenedor-footer">
             <div class="contenedor-logo">
                 <img src="img/logo/logo-footer.png" alt="logo-Footer" class="logo-footer">
@@ -266,14 +263,14 @@
         <p class="footer-copy">© 2026 FutCore. Todos los derechos reservados</p>
     </footer> -->
 
-    <footer id="footer-placeholder"></footer>
-
-
 
     <script src="js/componentes.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/equipo.js"></script>
     <script>
         renderizarHeader("");
         renderizarFooter("");
+        renderizarGrilla(equipos);
     </script>
 
 
