@@ -26,21 +26,15 @@
 
 <body>
 
-    <!-- ============================== -->
-    <!--        BOTÓN VOLVER            -->
-    <!-- ============================== -->
+    <!-- BOTÓN VOLVER -->
     <a href="index.html" class="enlace-volver">&#8592; Inicio</a>
 
-    <!-- ============================== -->
-    <!--   CONTENEDOR PRINCIPAL AUTH    -->
-    <!-- ============================== -->
+    <!-- CONTENEDOR PRINCIPAL AUTH -->
     <main class="auth-page">
 
         <div class="auth-container" id="authContainer">
 
-            <!-- ====================================== -->
-            <!--     TOGGLE SWITCH (Registro / Login)   -->
-            <!-- ====================================== -->
+            <!-- TOGGLE SWITCH (Registro / Login) -->
             <div class="auth-toggle" id="authToggle">
                 <div class="auth-toggle-slider" id="toggleSlider"></div>
                 <button type="button" class="auth-toggle-btn toggle-activo" id="btnToggleRegistro">
@@ -51,9 +45,7 @@
                 </button>
             </div>
 
-            <!-- ====================================== -->
-            <!--   CARRUSEL DE PANELES (se desliza)     -->
-            <!-- ====================================== -->
+            <!-- CARRUSEL DE PANELES -->
             <div class="auth-carrusel-wrapper">
                 <div class="auth-carrusel" id="authCarrusel">
 
@@ -70,22 +62,37 @@
                             <div class="auth-campo">
                                 <label for="regUsuario" class="auth-label">Nombre de usuario:</label>
                                 <input type="text" id="regUsuario" name="regUsuario" class="auth-input" required>
+                                <span class="campo-error" id="regUsuarioError"></span>
                             </div>
 
                             <div class="auth-campo">
                                 <label for="regEmail" class="auth-label">Correo electrónico:</label>
                                 <input type="email" id="regEmail" name="regEmail" class="auth-input" required>
+                                <span class="campo-error" id="regEmailError"></span>
                             </div>
 
                             <div class="auth-campo">
                                 <label for="regPassword" class="auth-label">Contraseña:</label>
                                 <input type="password" id="regPassword" name="regPassword" class="auth-input" required>
+                                <span class="campo-error" id="regPasswordError"></span>
+
+                                <!-- Checklist visual de requisitos de contraseña -->
+                                <ul class="password-requisitos" id="passwordRequisitos">
+                                    <li id="reqMinuscula"><i class="fa-solid fa-xmark"></i> Una letra minúscula</li>
+                                    <li id="reqMayuscula"><i class="fa-solid fa-xmark"></i> Una letra mayúscula</li>
+                                    <li id="reqNumero"><i class="fa-solid fa-xmark"></i> Un número</li>
+                                    <li id="reqEspecial"><i class="fa-solid fa-xmark"></i> Un carácter especial (# $ ! % =)</li>
+                                    <li id="reqLargo"><i class="fa-solid fa-xmark"></i> Entre 8 y 12 caracteres</li>
+                                </ul>
                             </div>
 
                             <p class="auth-mensaje-error" id="registroError"></p>
                             <p class="auth-mensaje-exito" id="registroExito"></p>
 
-                            <button type="submit" class="auth-btn auth-btn--principal">Registrarse</button>
+                            <div class="auth-botones">
+                                <button type="submit" class="auth-btn auth-btn--principal">Registrarse</button>
+                                <button type="reset" class="auth-btn auth-btn--limpiar">Limpiar</button>
+                            </div>
 
                         </form>
 
@@ -106,18 +113,23 @@
                             <div class="auth-campo">
                                 <label for="loginUsuario" class="auth-label">Mail o Nombre de usuario:</label>
                                 <input type="text" id="loginUsuario" name="loginUsuario" class="auth-input" required>
+                                <span class="campo-error" id="loginUsuarioError"></span>
                             </div>
 
                             <div class="auth-campo">
                                 <label for="loginPassword" class="auth-label">Contraseña:</label>
                                 <input type="password" id="loginPassword" name="loginPassword" class="auth-input"
                                     required>
+                                <span class="campo-error" id="loginPasswordError"></span>
                             </div>
 
                             <p class="auth-mensaje-error" id="loginError"></p>
                             <p class="auth-mensaje-exito" id="loginExito"></p>
 
-                            <button type="submit" class="auth-btn auth-btn--principal">Ingresar</button>
+                            <div class="auth-botones">
+                                <button type="submit" class="auth-btn auth-btn--principal">Ingresar</button>
+                                <button type="reset" class="auth-btn auth-btn--limpiar">Limpiar</button>
+                            </div>
 
                         </form>
 
@@ -137,10 +149,7 @@
             <!-- FIN CARRUSEL -->
 
 
-            <!-- ====================================== -->
-            <!--  PANEL 3: RECUPERAR CONTRASEÑA         -->
-            <!--  (Se superpone con animación propia)    -->
-            <!-- ====================================== -->
+            <!-- PANEL 3: RECUPERAR CONTRASEÑA (se superpone) -->
             <div class="auth-panel-recuperar" id="panelRecuperar">
 
                 <div class="auth-header">
@@ -155,6 +164,7 @@
                         <label for="recEmail" class="auth-label">Correo electrónico:</label>
                         <input type="email" id="recEmail" name="recEmail" class="auth-input"
                             placeholder="ejemplo@correo.com" required>
+                        <span class="campo-error" id="recEmailError"></span>
                     </div>
 
                     <p class="auth-mensaje-error" id="recuperarError"></p>
@@ -183,9 +193,7 @@
     </main>
 
 
-    <!-- ============================== -->
-    <!--          FOOTER                -->
-    <!-- ============================== -->
+    <!-- FOOTER -->
     <footer>
         <div class="cotenedor-footer">
             <div class="contenedor-logo">
@@ -227,9 +235,6 @@
         <p class="footer-copy">© 2026 FutCore. Todos los derechos reservados</p>
     </footer>
 
-    <!-- ============================== -->
-    <!--    SCRIPT DE AUTENTICACIÓN     -->
-    <!-- ============================== -->
     <script src="js/auth.js"></script>
 
 </body>

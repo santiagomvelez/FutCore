@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fut Core - Perfil</title>
     <link rel="stylesheet" href="../Css/style-perfil.css">
+    <link rel="stylesheet" href="../css/style-auth.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,21 +24,16 @@
             <a href="../index.html"><img src="../img/Logo/logo-header.png" alt="logo-header" class="logo-header"></a>
         </div>
 
-
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="btn-hamburguesa">
             <i class="fa-solid fa-bars"></i>
         </label>
-
-
-
 
         <nav class="nav-header">
             <ul>
                 <li><a href="../index.html">Principal</a></li>
                 <li><a href="#">Juegos</a></li>
                 <li><a href="#">Equipos</a></li>
-
             </ul>
         </nav>
     </header>
@@ -45,58 +41,125 @@
     <main class="contenedor relleno-vertical-20 relleno-horizontal-10 caja-flexible flex-columna brecha-20">
 
 
-        <!-- DATOS DE PERFIL -->
+        <!-- FORMULARIO DE DATOS DE PERFIL (editable) -->
 
         <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
-            <!-- Cabecera del Perfil -->
             <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
                 <h2 class="texto-muy-grande texto-esmeralda">Perfil de Usuario</h2>
             </div>
 
-            <!-- Grilla Principal (Datos y Preferencias) -->
-            <div class="caja-flexible envolver-flex brecha-20 estirar">
+            <form id="formPerfil" class="caja-flexible flex-columna brecha-10" novalidate>
 
-                <!-- Mis Datos -->
-                <article
-                    class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris escala-hover">
-                    <h3
-                        class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
-                        Mis Datos</h3>
-                    <div class="caja-flexible flex-columna brecha-10 margen-arriba-10 text-center">
-                        <div class="caja-flexible flex-columna">
-                            <span class="texto-secundario texto-chico margen-abajo-5">Nombre y Apellido</span>
-                            <span class="texto-mediano texto-blanco">Juan Pérez</span>
-                        </div>
-                        <div class="caja-flexible flex-columna">
-                            <span class="texto-secundario texto-chico margen-abajo-5">Correo Electrónico</span>
-                            <span class="texto-mediano texto-blanco">juan.perez@futbol.com</span>
-                        </div>
-                    </div>
-                </article>
+                <!-- Grilla de datos personales y preferencias -->
+                <div class="caja-flexible envolver-flex brecha-20 estirar">
 
-                <!-- Preferencias -->
-                <article
-                    class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris escala-hover">
-                    <h3
-                        class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
-                        Preferencias Futbolísticas</h3>
-                    <div class="caja-flexible flex-columna brecha-10 margen-arriba-10 text-center">
-                        <div class="caja-flexible flex-columna">
-                            <span class="texto-secundario texto-chico margen-abajo-5">Posición en la cancha</span>
-                            <span class="texto-mediano texto-blanco">Mediocampista Ofensivo</span>
+                    <!-- Mis Datos -->
+                    <article class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris">
+                        <h3
+                            class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                            Mis Datos</h3>
+
+                        <div class="caja-flexible flex-columna brecha-10 margen-arriba-10">
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilNombre" class="texto-secundario texto-chico margen-abajo-5">Nombre y
+                                    Apellido</label>
+                                <input type="text" id="perfilNombre" name="perfilNombre" class="auth-input" required>
+                                <span class="campo-error" id="perfilNombreError"></span>
+                            </div>
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilEmail" class="texto-secundario texto-chico margen-abajo-5">Correo
+                                    Electrónico</label>
+                                <input type="email" id="perfilEmail" name="perfilEmail" class="auth-input" required>
+                                <span class="campo-error" id="perfilEmailError"></span>
+                            </div>
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilDni" class="texto-secundario texto-chico margen-abajo-5">DNI</label>
+                                <input type="text" id="perfilDni" name="perfilDni" class="auth-input" required>
+                                <span class="campo-error" id="perfilDniError"></span>
+                            </div>
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilTelefono"
+                                    class="texto-secundario texto-chico margen-abajo-5">Teléfono</label>
+                                <input type="text" id="perfilTelefono" name="perfilTelefono" class="auth-input"
+                                    placeholder="+54 9 11 1234-5678">
+                                <span class="campo-error" id="perfilTelefonoError"></span>
+                            </div>
+
                         </div>
-                        <div class="caja-flexible flex-columna">
-                            <span class="texto-secundario texto-chico margen-abajo-5">Liga Favorita</span>
-                            <span class="texto-mediano texto-blanco">Premier League</span>
+                    </article>
+
+                    <!-- Preferencias Futbolísticas -->
+                    <article class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris">
+                        <h3
+                            class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                            Preferencias Futbolísticas</h3>
+
+                        <div class="caja-flexible flex-columna brecha-10 margen-arriba-10">
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilPosicion" class="texto-secundario texto-chico margen-abajo-5">Posición
+                                    en la cancha</label>
+                                <select id="perfilPosicion" name="perfilPosicion" class="auth-input">
+                                    <option value="">-- Seleccioná una posición --</option>
+                                    <option value="Arquero">Arquero</option>
+                                    <option value="Defensor Central">Defensor Central</option>
+                                    <option value="Lateral Derecho">Lateral Derecho</option>
+                                    <option value="Lateral Izquierdo">Lateral Izquierdo</option>
+                                    <option value="Mediocampista Defensivo">Mediocampista Defensivo</option>
+                                    <option value="Mediocampista Central">Mediocampista Central</option>
+                                    <option value="Mediocampista Ofensivo">Mediocampista Ofensivo</option>
+                                    <option value="Extremo Derecho">Extremo Derecho</option>
+                                    <option value="Extremo Izquierdo">Extremo Izquierdo</option>
+                                    <option value="Delantero Centro">Delantero Centro</option>
+                                </select>
+                            </div>
+
+                            <div class="caja-flexible flex-columna">
+                                <label for="perfilLiga" class="texto-secundario texto-chico margen-abajo-5">Liga
+                                    Favorita</label>
+                                <select id="perfilLiga" name="perfilLiga" class="auth-input">
+                                    <option value="">-- Seleccioná una liga --</option>
+                                    <option value="Liga Profesional Argentina">Liga Profesional Argentina</option>
+                                    <option value="Premier League">Premier League</option>
+                                    <option value="La Liga">La Liga</option>
+                                    <option value="Serie A">Serie A</option>
+                                    <option value="Bundesliga">Bundesliga</option>
+                                    <option value="Ligue 1">Ligue 1</option>
+                                    <option value="Brasileirão">Brasileirão</option>
+                                    <option value="MLS">MLS</option>
+                                </select>
+                            </div>
+
                         </div>
-                    </div>
-                </article>
-            </div>
+                    </article>
+
+                </div>
+
+                <!-- Mensajes globales y botones -->
+                <p class="auth-mensaje-error" id="perfilError"></p>
+                <p class="auth-mensaje-exito" id="perfilExito"></p>
+
+                <div class="caja-flexible brecha-10 justificar-centro margen-arriba-10">
+                    <button type="submit" class="boton boton-esmeralda">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar Perfil
+                    </button>
+                    <button type="reset" class="boton"
+                        style="background-color: #2a3331; color: #cbd5e0; border: 1px solid #1b7d6d;">
+                        <i class="fa-solid fa-eraser"></i> Limpiar
+                    </button>
+                </div>
+
+            </form>
         </section>
 
 
+        <!-- EQUIPOS FAVORITOS (se mantiene igual) -->
+
         <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
-            <!-- equipos Favoritos -->
             <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
                 <h2 class="texto-muy-grande texto-esmeralda">Mis Equipos Favoritos</h2>
             </div>
@@ -106,7 +169,6 @@
                 <!-- Equipo 1: Boca Juniors -->
                 <article
                     class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <!-- Imagen de internet (Escudo de Boca) -->
                     <div class="imagen-cubrir alto-150 borde-inf-azulado">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/250px-CABJ70.png"
                             alt="Boca Juniors" class="ancho-100 alto-100"
@@ -122,7 +184,6 @@
                 <!-- Equipo 2: Flamengo -->
                 <article
                     class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <!-- Imagen de internet (Escudo del Flamengo) -->
                     <div class="imagen-cubrir alto-150 borde-inf-azulado">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Flamengo-RJ_%28BRA%29.png"
                             alt="Flamengo" class="ancho-100 alto-100"
@@ -138,7 +199,6 @@
                 <!-- Equipo 3: Vélez Sarsfield -->
                 <article
                     class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <!-- Imagen de internet (Escudo de Vélez) -->
                     <div class="imagen-cubrir alto-150 borde-inf-azulado">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Escudo_de_V%C3%A9lez.jpg/960px-Escudo_de_V%C3%A9lez.jpg"
                             alt="Vélez Sarsfield" class="ancho-100 alto-100"
@@ -160,7 +220,7 @@
     <footer>
         <div class="cotenedor-footer">
             <div class="contenedor-logo">
-                <img src="../img/Logo/Logo-Fotter.png" alt="logo-Footer" class="logo-footer">
+                <img src="../img/logo/logo-footer.png" alt="logo-Footer" class="logo-footer">
                 <div class="contenedor-redes">
                     <h4>Nuestras redes:</h4>
                     <a href=""><i class="fa-brands fa-instagram"></i></a>
@@ -172,7 +232,7 @@
             <section class="footer-seccion">
                 <h3>Menu</h3>
                 <ul>
-                    <li><a href="../index.html">Pricipal</a></li>
+                    <li><a href="../index.html">Principal</a></li>
                     <li><a href="#">Juegos</a></li>
                     <li><a href="#">Mi Perfil</a></li>
                 </ul>
@@ -194,13 +254,12 @@
                 </ul>
             </section>
 
-
-
         </div>
-
 
         <p class="footer-copy">© 2026 FutCore. Todos los derechos reservados</p>
     </footer>
+
+    <script src="../js/perfil.js"></script>
 
 </body>
 

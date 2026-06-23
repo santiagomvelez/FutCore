@@ -271,12 +271,60 @@
     animation: sacudir 0.35s ease;
 }
 
+.input-valido {
+    border-color: #38a169 !important;
+    box-shadow: 0 0 6px rgba(56, 161, 105, 0.3) !important;
+}
+
 @keyframes sacudir {
     0%, 100% { transform: translateX(0); }
     20%      { transform: translateX(-5px); }
     40%      { transform: translateX(5px); }
     60%      { transform: translateX(-3px); }
     80%      { transform: translateX(3px); }
+}
+
+/* Mensaje de error individual debajo de cada input */
+.campo-error {
+    display: block;
+    color: #fc8181;
+    font-size: 0.78rem;
+    min-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+}
+
+/* Checklist visual de requisitos de contraseña */
+.password-requisitos {
+    list-style: none;
+    padding: 8px 0 0 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.password-requisitos li {
+    font-size: 0.75rem;
+    color: #8a9e9b;
+    transition: color 0.3s ease;
+}
+
+.password-requisitos li i {
+    width: 14px;
+    text-align: center;
+    margin-right: 4px;
+    font-size: 0.7rem;
+}
+
+/* Cuando el requisito se cumple, se pone verde con un check */
+.password-requisitos li.requisito-cumplido {
+    color: #68d391;
+}
+
+.password-requisitos li.requisito-cumplido i::before {
+    content: "\f00c";
 }
 
 

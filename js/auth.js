@@ -2,13 +2,11 @@
 // DOMContentLoaded espera a que el HTML este listo antes de ejecutar el JS
 document.addEventListener('DOMContentLoaded', function () {
 
-    // getElementById busca un elemento del HTML por su id y nos lo guarda en una variable
+    // getElementById busca un elemento del HTML por su id
 
     const authContainer = document.getElementById('authContainer');
-
     const btnToggleRegistro = document.getElementById('btnToggleRegistro');
     const btnToggleLogin = document.getElementById('btnToggleLogin');
-
     const panelRecuperar = document.getElementById('panelRecuperar');
 
     const formLogin = document.getElementById('formLogin');
@@ -24,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const recEmail = document.getElementById('recEmail');
 
+    // Mensajes globales de error/exito
     const loginError = document.getElementById('loginError');
     const loginExito = document.getElementById('loginExito');
     const registroError = document.getElementById('registroError');
@@ -31,17 +30,140 @@ document.addEventListener('DOMContentLoaded', function () {
     const recuperarError = document.getElementById('recuperarError');
     const recuperarExito = document.getElementById('recuperarExito');
 
+    // Spans de error individuales por campo
+    const regUsuarioError = document.getElementById('regUsuarioError');
+    const regEmailError = document.getElementById('regEmailError');
+    const regPasswordError = document.getElementById('regPasswordError');
+    const loginUsuarioError = document.getElementById('loginUsuarioError');
+    const loginPasswordError = document.getElementById('loginPasswordError');
+    const recEmailError = document.getElementById('recEmailError');
+
+    // Elementos del checklist de requisitos de contraseña
+    const reqMinuscula = document.getElementById('reqMinuscula');
+    const reqMayuscula = document.getElementById('reqMayuscula');
+    const reqNumero = document.getElementById('reqNumero');
+    const reqEspecial = document.getElementById('reqEspecial');
+    const reqLargo = document.getElementById('reqLargo');
+
+    // Links de navegacion
     const irARecuperar = document.getElementById('irARecuperar');
     const volverDeRecuperar = document.getElementById('volverDeRecuperar');
 
 
-    // classList.add/remove agrega o quita una clase CSS del elemento, asi controlamos el estilo desde JS
+    // =========================================================
+    // FUNCIONES DE VALIDACION CON REGEX
+    // Cada una usa .test() que devuelve true o false
+    // =========================================================
+
+    // ^[a-zA-Z]+$ → ^ = inicio, [a-zA-Z] = solo letras, + = una o mas, $ = fin
+    function validarUsuario(valor) {
+        const regex = /^[a-zA-Z]+$/;
+        return regex.test(valor);
+    }
+
+    // ^[^\s@]+ → empieza con uno o mas caracteres que NO sean espacio ni @
+    // @ → tiene que tener una arroba
+    // [^\s@]+ → despues de la @ hay texto sin espacios ni @
+    // \. → un punto literal
+    // [^\s@]+ → despues del punto hay mas texto (ej: com, net, ar)
+    function validarEmail(valor) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(valor);
+    }
+
+    // Valida la contraseña chequeando 5 reglas por separado
+    // Devuelve un objeto con el resultado de cada una
+    function validarPassword(valor) {
+        return {
+            // [a-z] → busca al menos una letra minuscula en el texto
+            tieneMinuscula: /[a-z]/.test(valor),
+            // [A-Z] → busca al menos una letra mayuscula
+            tieneMayuscula: /[A-Z]/.test(valor),
+            // [0-9] → busca al menos un numero
+            tieneNumero: /[0-9]/.test(valor),
+            // [#$!%=] → busca al menos uno de estos caracteres especiales permitidos
+            tieneEspecial: /[#$!%=]/.test(valor),
+            // ^.{8,12}$ → el texto completo debe tener entre 8 y 12 caracteres (. = cualquier caracter)
+            largoValido: /^.{8,12}$/.test(valor)
+        };
+    }
+
+
+
+    // FUNCIONES AUXILIARES (mostrarErrorCampo, limpiarErrorCampo, mostrarError, mostrarExito, limpiarMensajes, limpiarErroresDeInputs, resetearChecklistPassword)
+
+
+    // Muestra un mensaje de error en un span debajo del input
+    function mostrarErrorCampo(spanError, mensaje, input) {
+        spanError.textContent = mensaje;
+        input.classList.add('input-error');
+        input.classList.remove('input-valido');
+    }
+
+    // Limpia el error de un campo especifico
+    function limpiarErrorCampo(spanError, input) {
+        spanError.textContent = '';
+        input.classList.remove('input-error');
+    }
+
+    // Muestra un mensaje de error global (el <p> rojo grande)
+    function mostrarError(elementoMensaje, texto) {
+        elementoMensaje.textContent = texto;
+        elementoMensaje.classList.add('visible');
+    }
+
+    // Muestra un mensaje de exito global
+    function mostrarExito(elementoMensaje, texto) {
+        elementoMensaje.textContent = texto;
+        elementoMensaje.classList.add('visible');
+    }
+
+    // textContent cambia el texto, classList.remove quita la clase visible
+    function limpiarMensajes() {
+        const mensajes = [loginError, loginExito, registroError, registroExito, recuperarError, recuperarExito];
+        for (let i = 0; i < mensajes.length; i++) {
+            mensajes[i].textContent = '';
+            mensajes[i].classList.remove('visible');
+        }
+    }
+
+    // Limpia todos los errores de inputs y spans
+    function limpiarErroresDeInputs() {
+        const todosLosInputs = document.querySelectorAll('.auth-input');
+        for (let i = 0; i < todosLosInputs.length; i++) {
+            todosLosInputs[i].classList.remove('input-error');
+            todosLosInputs[i].classList.remove('input-valido');
+        }
+        // Tambien limpiamos los spans de error individuales
+        const todosLosSpans = document.querySelectorAll('.campo-error');
+        for (let i = 0; i < todosLosSpans.length; i++) {
+            todosLosSpans[i].textContent = '';
+        }
+    }
+
+    // Resetea el checklist de password a su estado inicial (todo en X roja)
+    function resetearChecklistPassword() {
+        const items = [reqMinuscula, reqMayuscula, reqNumero, reqEspecial, reqLargo];
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove('requisito-cumplido');
+            // Restauramos el icono de X
+            items[i].querySelector('i').className = 'fa-solid fa-xmark';
+        }
+    }
+
+
+
+    // FUNCIONES DEL TOGGLE Y PANELES
+
+
+    // classList.add/remove agrega o quita una clase CSS para controlar el estilo desde JS
     function activarLogin() {
         authContainer.classList.add('login-activo');
         btnToggleRegistro.classList.remove('toggle-activo');
         btnToggleLogin.classList.add('toggle-activo');
         limpiarMensajes();
         limpiarErroresDeInputs();
+        resetearChecklistPassword();
     }
 
     function activarRegistro() {
@@ -52,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
         limpiarErroresDeInputs();
     }
 
-    // Estas funciones muestran u ocultan el panel de recuperar agregando/quitando la clase
     function mostrarRecuperar() {
         panelRecuperar.classList.add('recuperar-activo');
         limpiarMensajes();
@@ -65,61 +186,130 @@ document.addEventListener('DOMContentLoaded', function () {
         limpiarErroresDeInputs();
     }
 
-    // textContent cambia el texto de un elemento, y con classList.remove le sacamos la clase visible
-    function limpiarMensajes() {
-        const mensajes = [loginError, loginExito, registroError, registroExito, recuperarError, recuperarExito];
 
-        for (let i = 0; i < mensajes.length; i++) {
-            mensajes[i].textContent = '';
-            mensajes[i].classList.remove('visible');
+
+    // EVENTOS BLUR Y FOCUS — Feedback en tiempo real por campo
+    // blur se dispara cuando el usuario sale de un input
+    // focus se dispara cuando hace clic en el input
+
+
+    // --- REGISTRO: blur en Usuario ---
+    regUsuario.addEventListener('blur', function () {
+        const valor = regUsuario.value.trim();
+        if (valor === '') {
+            mostrarErrorCampo(regUsuarioError, 'Este campo es obligatorio.', regUsuario);
+        } else if (!validarUsuario(valor)) {
+            mostrarErrorCampo(regUsuarioError, 'Solo se permiten letras (sin números, espacios ni símbolos).', regUsuario);
+        } else {
+            limpiarErrorCampo(regUsuarioError, regUsuario);
+            regUsuario.classList.add('input-valido');
         }
-    }
+    });
 
-    // querySelectorAll selecciona todos los elementos que coincidan con el selector CSS
-    function limpiarErroresDeInputs() {
-        const todosLosInputs = document.querySelectorAll('.auth-input');
+    regUsuario.addEventListener('focus', function () {
+        limpiarErrorCampo(regUsuarioError, regUsuario);
+    });
 
-        for (let i = 0; i < todosLosInputs.length; i++) {
-            todosLosInputs[i].classList.remove('input-error');
+    // --- REGISTRO: blur en Email ---
+    regEmail.addEventListener('blur', function () {
+        const valor = regEmail.value.trim();
+        if (valor === '') {
+            mostrarErrorCampo(regEmailError, 'Este campo es obligatorio.', regEmail);
+        } else if (!validarEmail(valor)) {
+            mostrarErrorCampo(regEmailError, 'El formato del correo no es válido (ej: nombre@correo.com).', regEmail);
+        } else {
+            limpiarErrorCampo(regEmailError, regEmail);
+            regEmail.classList.add('input-valido');
         }
-    }
+    });
 
-    // Recibe un elemento <p> y un texto, lo muestra en pantalla agregandole la clase visible
-    function mostrarError(elementoMensaje, texto) {
-        elementoMensaje.textContent = texto;
-        elementoMensaje.classList.add('visible');
-    }
+    regEmail.addEventListener('focus', function () {
+        limpiarErrorCampo(regEmailError, regEmail);
+    });
 
-    function mostrarExito(elementoMensaje, texto) {
-        elementoMensaje.textContent = texto;
-        elementoMensaje.classList.add('visible');
-    }
-
-
-    // blur se dispara cuando el usuario sale de un input, focus cuando hace clic en el
-    const todosLosInputs = document.querySelectorAll('.auth-input');
-
-    for (let i = 0; i < todosLosInputs.length; i++) {
-        const inputActual = todosLosInputs[i];
-
-        // hasAttribute('required') chequea si el input tiene el atributo required en el HTML
-        inputActual.addEventListener('blur', function () {
-            const esObligatorio = inputActual.hasAttribute('required');
-            // trim() saca los espacios en blanco del inicio y el final del texto
-            const estaVacio = inputActual.value.trim() === '';
-
-            if (esObligatorio && estaVacio) {
-                inputActual.classList.add('input-error');
+    // --- REGISTRO: blur en Password ---
+    regPassword.addEventListener('blur', function () {
+        const valor = regPassword.value.trim();
+        if (valor === '') {
+            mostrarErrorCampo(regPasswordError, 'Este campo es obligatorio.', regPassword);
+        } else {
+            const resultado = validarPassword(valor);
+            const todoOk = resultado.tieneMinuscula && resultado.tieneMayuscula && resultado.tieneNumero && resultado.tieneEspecial && resultado.largoValido;
+            if (!todoOk) {
+                mostrarErrorCampo(regPasswordError, 'La contraseña no cumple todos los requisitos.', regPassword);
+            } else {
+                limpiarErrorCampo(regPasswordError, regPassword);
+                regPassword.classList.add('input-valido');
             }
-        });
+        }
+    });
 
-        inputActual.addEventListener('focus', function () {
-            inputActual.classList.remove('input-error');
-        });
+    regPassword.addEventListener('focus', function () {
+        limpiarErrorCampo(regPasswordError, regPassword);
+    });
+
+    // --- REGISTRO: evento input en Password para actualizar el checklist en tiempo real ---
+    // El evento 'input' se dispara cada vez que el usuario escribe o borra algo
+    regPassword.addEventListener('input', function () {
+        const valor = regPassword.value;
+        const resultado = validarPassword(valor);
+
+        // Para cada requisito: si se cumple le ponemos la clase y el icono de check
+        actualizarRequisito(reqMinuscula, resultado.tieneMinuscula);
+        actualizarRequisito(reqMayuscula, resultado.tieneMayuscula);
+        actualizarRequisito(reqNumero, resultado.tieneNumero);
+        actualizarRequisito(reqEspecial, resultado.tieneEspecial);
+        actualizarRequisito(reqLargo, resultado.largoValido);
+    });
+
+    // Funcion auxiliar que agrega o quita la clase del requisito y cambia el icono
+    function actualizarRequisito(elemento, cumplido) {
+        if (cumplido) {
+            elemento.classList.add('requisito-cumplido');
+            elemento.querySelector('i').className = 'fa-solid fa-check';
+        } else {
+            elemento.classList.remove('requisito-cumplido');
+            elemento.querySelector('i').className = 'fa-solid fa-xmark';
+        }
     }
 
+    // --- LOGIN: blur/focus en los campos ---
+    loginUsuario.addEventListener('blur', function () {
+        if (loginUsuario.value.trim() === '') {
+            mostrarErrorCampo(loginUsuarioError, 'Este campo es obligatorio.', loginUsuario);
+        }
+    });
+    loginUsuario.addEventListener('focus', function () {
+        limpiarErrorCampo(loginUsuarioError, loginUsuario);
+    });
 
-    // addEventListener('click') ejecuta una funcion cada vez que el usuario hace clic
+    loginPassword.addEventListener('blur', function () {
+        if (loginPassword.value.trim() === '') {
+            mostrarErrorCampo(loginPasswordError, 'Este campo es obligatorio.', loginPassword);
+        }
+    });
+    loginPassword.addEventListener('focus', function () {
+        limpiarErrorCampo(loginPasswordError, loginPassword);
+    });
+
+    // --- RECUPERAR: blur/focus en email ---
+    recEmail.addEventListener('blur', function () {
+        const valor = recEmail.value.trim();
+        if (valor === '') {
+            mostrarErrorCampo(recEmailError, 'Este campo es obligatorio.', recEmail);
+        } else if (!validarEmail(valor)) {
+            mostrarErrorCampo(recEmailError, 'El formato del correo no es válido.', recEmail);
+        }
+    });
+    recEmail.addEventListener('focus', function () {
+        limpiarErrorCampo(recEmailError, recEmail);
+    });
+
+
+    // =========================================================
+    // EVENTOS DEL TOGGLE
+    // =========================================================
+
     btnToggleRegistro.addEventListener('click', function () {
         activarRegistro();
     });
@@ -128,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
         activarLogin();
     });
 
-    // preventDefault() evita el comportamiento por defecto del enlace (que seria recargar la pagina)
+    // preventDefault() evita el comportamiento por defecto del enlace
     irARecuperar.addEventListener('click', function (e) {
         e.preventDefault();
         mostrarRecuperar();
@@ -140,25 +330,58 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // addEventListener('submit') intercepta el envio del formulario para validar antes
+    // =========================================================
+    // SUBMIT DEL REGISTRO
+    // Valida formato con RegEx, chequea duplicados en localStorage y guarda
+    // =========================================================
+
     formRegistro.addEventListener('submit', function (e) {
-        // preventDefault() frena el envio real del form para que no se recargue la pagina
+        // preventDefault() frena el envio del form para que no recargue la pagina
         e.preventDefault();
         limpiarMensajes();
 
-        // .value trae lo que escribio el usuario en el input, .trim() le saca espacios de sobra
+        // .value trae lo que escribio el usuario, .trim() le saca espacios de sobra
         const usuario = regUsuario.value.trim();
         const email = regEmail.value.trim();
         const password = regPassword.value.trim();
 
-        if (usuario === '' || email === '' || password === '') {
-            mostrarError(registroError, 'Todos los campos son obligatorios.');
+        // Variable para rastrear si hay algun error
+        let hayErrores = false;
 
-            if (usuario === '') regUsuario.classList.add('input-error');
-            if (email === '') regEmail.classList.add('input-error');
-            if (password === '') regPassword.classList.add('input-error');
+        // Validamos el usuario con la regex de solo letras
+        if (usuario === '') {
+            mostrarErrorCampo(regUsuarioError, 'Este campo es obligatorio.', regUsuario);
+            hayErrores = true;
+        } else if (!validarUsuario(usuario)) {
+            mostrarErrorCampo(regUsuarioError, 'Solo se permiten letras.', regUsuario);
+            hayErrores = true;
+        }
 
-            // return corta la funcion aca, no sigue ejecutando lo de abajo
+        // Validamos el email con la regex de formato correo
+        if (email === '') {
+            mostrarErrorCampo(regEmailError, 'Este campo es obligatorio.', regEmail);
+            hayErrores = true;
+        } else if (!validarEmail(email)) {
+            mostrarErrorCampo(regEmailError, 'El formato del correo no es válido.', regEmail);
+            hayErrores = true;
+        }
+
+        // Validamos la contraseña con las 5 reglas
+        if (password === '') {
+            mostrarErrorCampo(regPasswordError, 'Este campo es obligatorio.', regPassword);
+            hayErrores = true;
+        } else {
+            const resultado = validarPassword(password);
+            const todoOk = resultado.tieneMinuscula && resultado.tieneMayuscula && resultado.tieneNumero && resultado.tieneEspecial && resultado.largoValido;
+            if (!todoOk) {
+                mostrarErrorCampo(regPasswordError, 'La contraseña no cumple todos los requisitos.', regPassword);
+                hayErrores = true;
+            }
+        }
+
+        // return corta la funcion aca si hay errores, no sigue ejecutando lo de abajo
+        if (hayErrores) {
+            mostrarError(registroError, 'Corregí los campos marcados en rojo.');
             return;
         }
 
@@ -209,21 +432,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // push() agrega un elemento al final del array
         listaUsuarios.push(nuevoUsuario);
-        // JSON.stringify convierte el array de JS a string para poder guardarlo en localStorage
+        // JSON.stringify convierte el array de JS a string para guardarlo en localStorage
         localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
 
         mostrarExito(registroExito, '¡Cuenta creada con éxito! Cambiando a Iniciar Sesión...');
         // reset() limpia todos los campos del formulario
         formRegistro.reset();
+        resetearChecklistPassword();
+        limpiarErroresDeInputs();
 
-        // setTimeout ejecuta una funcion despues de los milisegundos que le pasemos (2000ms = 2seg)
+        // setTimeout ejecuta una funcion despues de los milisegundos que le pasemos
         setTimeout(function () {
             activarLogin();
         }, 2000);
     });
 
 
-    // Aca validamos el login: buscamos en localStorage si el user/mail existe y si la contraseña coincide
+    // =========================================================
+    // SUBMIT DEL LOGIN
+    // Busca en localStorage si el user/mail existe y si la contraseña coincide
+    // =========================================================
+
     formLogin.addEventListener('submit', function (e) {
         e.preventDefault();
         limpiarMensajes();
@@ -231,14 +460,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const usuarioOEmail = loginUsuario.value.trim();
         const password = loginPassword.value.trim();
 
-        if (usuarioOEmail === '' || password === '') {
-            mostrarError(loginError, 'Completá todos los campos para ingresar.');
+        let hayErrores = false;
 
-            if (usuarioOEmail === '') loginUsuario.classList.add('input-error');
-            if (password === '') loginPassword.classList.add('input-error');
-
-            return;
+        if (usuarioOEmail === '') {
+            mostrarErrorCampo(loginUsuarioError, 'Este campo es obligatorio.', loginUsuario);
+            hayErrores = true;
         }
+        if (password === '') {
+            mostrarErrorCampo(loginPasswordError, 'Este campo es obligatorio.', loginPassword);
+            hayErrores = true;
+        }
+
+        if (hayErrores) return;
 
         const datosGuardados = localStorage.getItem('usuarios');
         let listaUsuarios;
@@ -282,7 +515,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // Recuperar contraseña: verificamos que el mail exista y simulamos el envio
+    // =========================================================
+    // SUBMIT DE RECUPERAR CONTRASEÑA
+    // Valida formato del mail y chequea si existe en localStorage
+    // =========================================================
+
     formRecuperar.addEventListener('submit', function (e) {
         e.preventDefault();
         limpiarMensajes();
@@ -290,8 +527,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = recEmail.value.trim();
 
         if (email === '') {
-            mostrarError(recuperarError, 'Ingresá tu correo electrónico.');
-            recEmail.classList.add('input-error');
+            mostrarErrorCampo(recEmailError, 'Este campo es obligatorio.', recEmail);
+            return;
+        }
+
+        if (!validarEmail(email)) {
+            mostrarErrorCampo(recEmailError, 'El formato del correo no es válido.', recEmail);
             return;
         }
 
@@ -325,6 +566,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // El setTimeout con 0ms hace que se ejecute despues del reset nativo del navegador
     formRecuperar.addEventListener('reset', function () {
+        setTimeout(function () {
+            limpiarMensajes();
+            limpiarErroresDeInputs();
+        }, 0);
+    });
+
+    formRegistro.addEventListener('reset', function () {
+        setTimeout(function () {
+            limpiarMensajes();
+            limpiarErroresDeInputs();
+            resetearChecklistPassword();
+        }, 0);
+    });
+
+    formLogin.addEventListener('reset', function () {
         setTimeout(function () {
             limpiarMensajes();
             limpiarErroresDeInputs();

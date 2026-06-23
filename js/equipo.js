@@ -1,58 +1,60 @@
 //Archivo solo de los equipos, Solo 3 Por ser mucha Cantidad
 const equipos = [
-    {   id: 1,
+    {
+        id: 1,
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Club_Atl%C3%A9tico_River_Plate_logo.svg/960px-Club_Atl%C3%A9tico_River_Plate_logo.svg.png",
         alt: "Escudo River",
-        nombre: "River Plate", 
-        liga: "Liga Profesional de Futbol", 
-        pais: "Argentina", 
+        nombre: "River Plate",
+        liga: "Liga Profesional de Futbol",
+        pais: "Argentina",
         jugadores: [
-            {id: null, nombre: "Eduardo Coudet",posicion: "Entrenador",nacimiento: "12/09/1974",edad: 51, nacionalidad: "Argentina"},
-            {id: 1,nombre: "Franco Armani", posicion: "Arquero", nacimiento: "16/10/1986", edad: 39, nacionalidad: "Argentina"},
-            {id: 33,nombre: "Ezequiel Centurión",posicion: "Arquero", nacimiento: "20/05/1997",edad: 29,nacionalidad: "Argentina"},
-            {id: 41,nombre: "Santiago Beltrán",posicion: "Arquero",nacimiento: "04/10/2004",edad: 21,nacionalidad: "Argentina"},
-            {id: 2,nombre: "Tobías Ramirez",posicion: "Defensa Central",nacimiento: "11/11/2006",edad: 19, nacionalidad: "Argentina"},
-            {id: 5,nombre: "Juan Carlos Portillo",posicion: "Defensa Central",nacimiento: "18/05/2000",edad: 26,nacionalidad: "Argentina"},
-            {id: 13,nombre: "Lautaro Rivero",posicion: "Defensa Central",nacimiento: "01/11/2003",edad: 22,nacionalidad: "Argentina"},
-            {id: 16,nombre: "Fabricio Bustos",posicion: "Defensa Lateral Derecho",nacimiento: "28/04/1996",edad: 30,nacionalidad: "Argentina"},
-            {id: 17,nombre: "Paulo Diaz",posicion: "Defensa Central",nacimiento: "25/08/1994",edad: 31,nacionalidad: "Chile"},
-            {id: 18,nombre: "Matías Viña",posicion: "Defensa Lateral Izquierdo",nacimiento: "09/11/1997",edad: 28,nacionalidad: "Uruguay"},
-            { id: 20,nombre: "German Pezzella",posicion: "Defensa Central",nacimiento: "27/06/1991",edad: 34,nacionalidad: "Argentina"},
-            {id: 21,nombre: "Marcos Acuña",posicion: "Defensa Lateral Izquierdo",nacimiento: "28/10/1991",edad: 34,nacionalidad: "Argentina"},
-            {id: 28,nombre: "Lucas Martínez Quarta",posicion: "Defensa Central",nacimiento: "10/05/1996",edad: 30,nacionalidad: "Argentina"},
-            {id: 29,nombre: "Gonzalo Montiel", posicion: "Defensa Lateral Derecho",nacimiento: "01/01/1997",edad: 29,nacionalidad: "Argentina"},
-            {id: 30,nombre: "Nicolás Otamendi",posicion: "Defensa Central",nacimiento: "12/02/1988",edad: 38,nacionalidad: "Argentina"},
-            {id: 36,nombre: "Ulises Giménez",posicion: "Defensa Central",nacimiento: "01/01/2006", edad: 20,nacionalidad: "Argentina"},
-            {id: null,nombre: "Elián Giménez",posicion: "Centrocampista defensivo",nacimiento: "23/03/2004",edad: 22,nacionalidad: "Argentina"},
-            {id: 39,nombre: "Lucas Silva",posicion: "Centrocampista defensivo",nacimiento: "26/02/2007",edad: 19,nacionalidad: "Brasil"},
-            {id: 6,nombre: "Anibal Moreno",posicion: "Centrocampista defensivo",nacimiento: "13/05/1999",edad: 27,nacionalidad: "Argentina"},
-            {id: 10,nombre: "Juan Fernando Quintero",posicion: "Mediocampista Ofensivo",nacimiento: "18/01/1993",edad: 33,nacionalidad: "Colombia"},
-            {id: 15,nombre: "Fausto Vera",posicion: "Centrocampista defensivo",nacimiento: "26/03/2000",edad: 26,nacionalidad: "Argentina"},
-            {id: 19,nombre: "Kendry Páez",posicion: "Mediocampista Ofensivo",nacimiento: "04/05/2007",edad: 19,nacionalidad: "Ecuador"},
-            { id: 22,nombre: "Kevin Castaño",posicion: "Centrocampista defensivo",nacimiento: "29/09/2000",edad: 25,nacionalidad: "Colombia"}   ,
-            {id: 26,nombre: "Tomás Galván",posicion: "Mediocampista Ofensivo",nacimiento: "11/04/2000",edad: 26,nacionalidad: "Argentina"},
-            {id: 34,nombre: "Giuliano Galoppo",posicion: "Mediocampista Central",nacimiento: "18/06/1999",edad: 27,nacionalidad: "Argentina"},
-            {id: 39,nombre: "Santiago Lencina",posicion: "Mediocampista Ofensivo",nacimiento: "04/09/2005",edad: 20,nacionalidad: "Argentina"},
-            {id: 47,nombre: "Juan Cruz Meza",posicion: "Mediocampista Ofensivo",nacimiento: "14/03/2008",edad: 18,nacionalidad: "Argentina"},
-            {id: null,nombre: "Leonel Jaime",posicion: "Delantero Izquierdo",nacimiento: "14/07/2006",edad: 19,nacionalidad: "Argentina"},
-            {id: 7,nombre: "Maximiliano Salas",posicion: "Centro Delantero",nacimiento: "01/12/1997",edad: 28,nacionalidad: "Argentina"},
-            { id: 8,nombre: "Maximiliano Meza",posicion: "Delantero Derecho",nacimiento: "15/12/1992",edad: 33,nacionalidad: "Argentina"},
-            {id: 9,nombre: "Sebastián Driussi",posicion: "Centro Delantero",nacimiento: "09/02/1996",edad: 30,nacionalidad: "Argentina"},
-            {id: 11,nombre: "Facundo Colidio",posicion: "Centro Delantero", nacimiento: "04/01/2000",edad: 26,nacionalidad: "Argentina"},
-            {id: 32,nombre: "Agustín Ruberto",posicion: "Centro Delantero",nacimiento: "14/01/2006",edad: 20,nacionalidad: "Argentina"},
-            {id: 35,nombre: "Joaquín Freitas",posicion: "Centro Delantero",nacimiento: "02/12/2006",edad: 19,nacionalidad: "Argentina"},
-            {id: 38,nombre: "Ian Subiabre",posicion: "Delantero Derecho",nacimiento: "01/01/2007",edad: 19,nacionalidad: "Argentina"}
-        ] 
+            { id: null, nombre: "Eduardo Coudet", posicion: "Entrenador", nacimiento: "12/09/1974", edad: 51, nacionalidad: "Argentina" },
+            { id: 1, nombre: "Franco Armani", posicion: "Arquero", nacimiento: "16/10/1986", edad: 39, nacionalidad: "Argentina" },
+            { id: 33, nombre: "Ezequiel Centurión", posicion: "Arquero", nacimiento: "20/05/1997", edad: 29, nacionalidad: "Argentina" },
+            { id: 41, nombre: "Santiago Beltrán", posicion: "Arquero", nacimiento: "04/10/2004", edad: 21, nacionalidad: "Argentina" },
+            { id: 2, nombre: "Tobías Ramirez", posicion: "Defensa Central", nacimiento: "11/11/2006", edad: 19, nacionalidad: "Argentina" },
+            { id: 5, nombre: "Juan Carlos Portillo", posicion: "Defensa Central", nacimiento: "18/05/2000", edad: 26, nacionalidad: "Argentina" },
+            { id: 13, nombre: "Lautaro Rivero", posicion: "Defensa Central", nacimiento: "01/11/2003", edad: 22, nacionalidad: "Argentina" },
+            { id: 16, nombre: "Fabricio Bustos", posicion: "Defensa Lateral Derecho", nacimiento: "28/04/1996", edad: 30, nacionalidad: "Argentina" },
+            { id: 17, nombre: "Paulo Diaz", posicion: "Defensa Central", nacimiento: "25/08/1994", edad: 31, nacionalidad: "Chile" },
+            { id: 18, nombre: "Matías Viña", posicion: "Defensa Lateral Izquierdo", nacimiento: "09/11/1997", edad: 28, nacionalidad: "Uruguay" },
+            { id: 20, nombre: "German Pezzella", posicion: "Defensa Central", nacimiento: "27/06/1991", edad: 34, nacionalidad: "Argentina" },
+            { id: 21, nombre: "Marcos Acuña", posicion: "Defensa Lateral Izquierdo", nacimiento: "28/10/1991", edad: 34, nacionalidad: "Argentina" },
+            { id: 28, nombre: "Lucas Martínez Quarta", posicion: "Defensa Central", nacimiento: "10/05/1996", edad: 30, nacionalidad: "Argentina" },
+            { id: 29, nombre: "Gonzalo Montiel", posicion: "Defensa Lateral Derecho", nacimiento: "01/01/1997", edad: 29, nacionalidad: "Argentina" },
+            { id: 30, nombre: "Nicolás Otamendi", posicion: "Defensa Central", nacimiento: "12/02/1988", edad: 38, nacionalidad: "Argentina" },
+            { id: 36, nombre: "Ulises Giménez", posicion: "Defensa Central", nacimiento: "01/01/2006", edad: 20, nacionalidad: "Argentina" },
+            { id: null, nombre: "Elián Giménez", posicion: "Centrocampista defensivo", nacimiento: "23/03/2004", edad: 22, nacionalidad: "Argentina" },
+            { id: 39, nombre: "Lucas Silva", posicion: "Centrocampista defensivo", nacimiento: "26/02/2007", edad: 19, nacionalidad: "Brasil" },
+            { id: 6, nombre: "Anibal Moreno", posicion: "Centrocampista defensivo", nacimiento: "13/05/1999", edad: 27, nacionalidad: "Argentina" },
+            { id: 10, nombre: "Juan Fernando Quintero", posicion: "Mediocampista Ofensivo", nacimiento: "18/01/1993", edad: 33, nacionalidad: "Colombia" },
+            { id: 15, nombre: "Fausto Vera", posicion: "Centrocampista defensivo", nacimiento: "26/03/2000", edad: 26, nacionalidad: "Argentina" },
+            { id: 19, nombre: "Kendry Páez", posicion: "Mediocampista Ofensivo", nacimiento: "04/05/2007", edad: 19, nacionalidad: "Ecuador" },
+            { id: 22, nombre: "Kevin Castaño", posicion: "Centrocampista defensivo", nacimiento: "29/09/2000", edad: 25, nacionalidad: "Colombia" },
+            { id: 26, nombre: "Tomás Galván", posicion: "Mediocampista Ofensivo", nacimiento: "11/04/2000", edad: 26, nacionalidad: "Argentina" },
+            { id: 34, nombre: "Giuliano Galoppo", posicion: "Mediocampista Central", nacimiento: "18/06/1999", edad: 27, nacionalidad: "Argentina" },
+            { id: 39, nombre: "Santiago Lencina", posicion: "Mediocampista Ofensivo", nacimiento: "04/09/2005", edad: 20, nacionalidad: "Argentina" },
+            { id: 47, nombre: "Juan Cruz Meza", posicion: "Mediocampista Ofensivo", nacimiento: "14/03/2008", edad: 18, nacionalidad: "Argentina" },
+            { id: null, nombre: "Leonel Jaime", posicion: "Delantero Izquierdo", nacimiento: "14/07/2006", edad: 19, nacionalidad: "Argentina" },
+            { id: 7, nombre: "Maximiliano Salas", posicion: "Centro Delantero", nacimiento: "01/12/1997", edad: 28, nacionalidad: "Argentina" },
+            { id: 8, nombre: "Maximiliano Meza", posicion: "Delantero Derecho", nacimiento: "15/12/1992", edad: 33, nacionalidad: "Argentina" },
+            { id: 9, nombre: "Sebastián Driussi", posicion: "Centro Delantero", nacimiento: "09/02/1996", edad: 30, nacionalidad: "Argentina" },
+            { id: 11, nombre: "Facundo Colidio", posicion: "Centro Delantero", nacimiento: "04/01/2000", edad: 26, nacionalidad: "Argentina" },
+            { id: 32, nombre: "Agustín Ruberto", posicion: "Centro Delantero", nacimiento: "14/01/2006", edad: 20, nacionalidad: "Argentina" },
+            { id: 35, nombre: "Joaquín Freitas", posicion: "Centro Delantero", nacimiento: "02/12/2006", edad: 19, nacionalidad: "Argentina" },
+            { id: 38, nombre: "Ian Subiabre", posicion: "Delantero Derecho", nacimiento: "01/01/2007", edad: 19, nacionalidad: "Argentina" }
+        ]
     },
 
-    {   id: 2, 
+    {
+        id: 2,
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/960px-CABJ70.png",
         alt: "Escudo Boca",
-        nombre: "Boca Juniors", 
-        liga: "Liga Profsional de Futbol", 
+        nombre: "Boca Juniors",
+        liga: "Liga Profsional de Futbol",
         pais: "Argentina",
-        jugadores:[ 
-            {id: null, nombre: "Rodolfo Arruabarrena", posicion: "Entrenador", nacimiento: "20/07/1975", edad: 50, nacionalidad: "Argentina" },
+        jugadores: [
+            { id: null, nombre: "Rodolfo Arruabarrena", posicion: "Entrenador", nacimiento: "20/07/1975", edad: 50, nacionalidad: "Argentina" },
             { id: 1, nombre: "Agustín Marchesín", posicion: "Arquero", nacimiento: "16/03/1988", edad: 38, nacionalidad: "Argentina" },
             { id: 12, nombre: "Leandro Brey", posicion: "Arquero", nacimiento: "21/09/2002", edad: 23, nacionalidad: "Argentina" },
             { id: 13, nombre: "Javier García", posicion: "Arquero", nacimiento: "29/01/1987", edad: 39, nacionalidad: "Argentina" },
@@ -91,11 +93,12 @@ const equipos = [
         ]
     },
 
-    {   id: 3, 
+    {
+        id: 3,
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg/960px-Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg.png",
         alt: "Escudo Velez",
-        nombre:"Velez Arfields", 
-        liga: "Liga Profesional de Futbol", 
+        nombre: "Velez Sarsfield",
+        liga: "Liga Profesional de Futbol",
         pais: "Argentina",
         jugadores: [
             { id: null, nombre: "Guillermo Barros Schelotto", posicion: "Entrenador", nacimiento: "04/05/1973", edad: 53, nacionalidad: "Argentina" },
@@ -131,12 +134,12 @@ const equipos = [
     },
 
     {
-        id: 4, 
+        id: 4,
         escudo: "https://i.pinimg.com/1200x/46/77/37/4677374ecd7e30c68811186071db1c28.jpg",
         alt: "Escudo Barcelona",
         nombre: "FC Barcelona",
         liga: "LaLiga",
-        pais:"España",
+        pais: "España",
         jugadores: [
             { id: null, nombre: "Hans-Dieter Flick", posicion: "Entrenador", nacimiento: "24/02/1965", edad: 61, nacionalidad: "Alemania" },
             { id: null, nombre: "Marcus Sorg", posicion: "Asistente tecnico", nacimiento: "24/12/1965", edad: 60, nacionalidad: "Alemania" },
@@ -171,7 +174,7 @@ const equipos = [
 
     {
         id: 5,
-        escudo: "https://i.pinimg.com/1200x/bb/8f/99/bb8f9956d1892f6ac5fd5c6650fbc218.jpg" ,
+        escudo: "https://i.pinimg.com/1200x/bb/8f/99/bb8f9956d1892f6ac5fd5c6650fbc218.jpg",
         alt: "Escudo Real",
         nombre: "Real Madrid",
         liga: "LaLiga",
@@ -212,13 +215,13 @@ const equipos = [
 
 
     {
-    id: 6,
-    escudo: "https://i.pinimg.com/736x/e6/e3/ef/e6e3ef11313f0b8df3a2dec703a7d7de.jpg",
-    alt:"Escudo Atletico",
-    nombre: "Atlético de Madrid",
-    liga: "LaLiga",
-    pais: "España",
-    jugadores: [
+        id: 6,
+        escudo: "https://i.pinimg.com/736x/e6/e3/ef/e6e3ef11313f0b8df3a2dec703a7d7de.jpg",
+        alt: "Escudo Atletico",
+        nombre: "Atlético de Madrid",
+        liga: "LaLiga",
+        pais: "España",
+        jugadores: [
             { id: null, nombre: "Diego Simeone", posicion: "Entrenador", nacimiento: "28/04/1970", edad: 56, nacionalidad: "Argentina" },
             { id: null, nombre: "Nelson Vivas", posicion: "Asistente tecnico", nacimiento: "18/10/1969", edad: 56, nacionalidad: "Argentina" },
             { id: 1, nombre: "Juan Musso", posicion: "Arquero", nacimiento: "06/05/1994", edad: 32, nacionalidad: "Argentina" },
@@ -251,8 +254,8 @@ const equipos = [
 
     {
         id: 7,
-        escudo:  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png",
-        alt:"Escudo Bayer",
+        escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png",
+        alt: "Escudo Bayer",
         nombre: "Bayern Munich",
         liga: "Bundesliga",
         pais: "Alemania",
@@ -284,12 +287,12 @@ const equipos = [
         ]
     },
 
-    
+
 
     {
         id: 8,
-        escudo:"https://i.pinimg.com/736x/0e/6e/76/0e6e76e604ea45b33a68e4b13cfa9e44.jpg",
-        alt:"Escudo United",
+        escudo: "https://i.pinimg.com/736x/0e/6e/76/0e6e76e604ea45b33a68e4b13cfa9e44.jpg",
+        alt: "Escudo United",
         nombre: "Manchester United",
         liga: "Premier League",
         pais: "Inglaterra",
@@ -322,11 +325,11 @@ const equipos = [
     },
 
 
-    
+
     {
         id: 9,
         escudo: "https://i.pinimg.com/1200x/1c/ea/b0/1ceab0a07f6609c2d3b8a06d1e164373.jpg",
-        alt:"Escudo City",
+        alt: "Escudo City",
         nombre: "Manchester City",
         liga: "Premier League",
         pais: "Inglaterra",
@@ -365,7 +368,7 @@ const equipos = [
 
     {
         id: 10,
-        escudo:"https://upload.wikimedia.org/wikipedia/commons/7/74/Escudo_del_Par%C3%ADs_Saint-Germain_temporada_2025-26.png", 
+        escudo: "https://upload.wikimedia.org/wikipedia/commons/7/74/Escudo_del_Par%C3%ADs_Saint-Germain_temporada_2025-26.png",
         alt: "Escudo Psg",
         nombre: "Paris Saint-Germain",
         liga: "Ligue 1",
@@ -400,12 +403,12 @@ const equipos = [
         ]
     },
 
-    
+
 
     {
         id: 11,
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/960px-FC_Internazionale_Milano_2021.svg.png",
-        alt:"Escudo Inter",
+        alt: "Escudo Inter",
         nombre: "Inter de Milán",
         liga: "Serie A",
         pais: "Italia",
