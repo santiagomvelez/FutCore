@@ -56,7 +56,7 @@ const equipos = [
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/960px-CABJ70.png",
         alt: "Escudo Boca",
         nombre: "Boca Juniors",
-        liga: "Liga Profsional de Futbol",
+        liga: "Liga Profesional de Futbol",
         pais: "Argentina",
         jugadores: [
             { id: null, nombre: "Rodolfo Arruabarrena", posicion: "Entrenador", nacimiento: "20/07/1975", edad: 50, nacionalidad: "Argentina" },
@@ -102,7 +102,7 @@ const equipos = [
         id: 3,
         escudo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg/960px-Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg.png",
         alt: "Escudo Velez",
-        nombre: "Velez Arfields",
+        nombre: "Velez Sarsfield",
         liga: "Liga Profesional de Futbol",
         pais: "Argentina",
         estadio: "https://i.pinimg.com/1200x/5f/4a/94/5f4a9477731883805d9e1bf1f0f9f1cd.jpg",
