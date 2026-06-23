@@ -1,3 +1,5 @@
+const inputBusqueda = document.getElementById("search");
+
 function renderizarGrilla(lista) {
     const main = document.getElementById("main-placeholder");
     main.classList.add("main");
@@ -47,3 +49,17 @@ function renderizarGrilla(lista) {
     });
 
 }
+
+inputBusqueda.addEventListener("keyup", (e) => {
+    const textoBuscado = e.target.value.toLowerCase();
+
+    const equipoFiltrado = equipos.filter(equipo =>
+        equipo.nombre.toLowerCase().includes(textoBuscado) ||
+        equipo.pais.toLowerCase().includes(textoBuscado) ||
+        (equipo.liga && equipo.liga.toLowerCase().includes(textoBuscado))
+    );
+
+    renderizarGrilla(equipoFiltrado);
+
+});
+

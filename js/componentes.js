@@ -173,3 +173,4 @@ function renderizarFooter(basePath = "") {
     footer.appendChild(copy);
 
 }
+
