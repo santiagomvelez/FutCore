@@ -33,7 +33,7 @@ function renderizarGrilla(lista) {
 
         const verEquipo = document.createElement("a");
         verEquipo.innerText = "Ver más...";
-        verEquipo.href = "../equipo/equipo.html?id=" + equipo.id;
+        verEquipo.href = "../equipo/detalle-equipo.html?id=" + equipo.id;
         verEquipo.classList.add("boton-conocer-mas");
 
 

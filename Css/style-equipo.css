@@ -1,93 +1,108 @@
+.titulo-principal {
+    height: 10vh;
+    font-size: 5em;
+    color: white;
+    padding: 1.25rem;
+    margin: 1.25rem;
+    display: flex;
+    justify-content: center;
+}
+
+
 main {
-    width: 100%;
-    min-height: 100vh;
     display: grid;
-    grid-template-areas: 
-        "escudo titulo"
-        "estadio plantel";
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    padding: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.75rem;
+    padding: 3.12rem;
+    margin-bottom: 3%;
 }
 
-.contenedor-escudo {
-    width: 50%;
-    background-color: var(--color-blanco);
-    height: 15rem;
+.card-paises {
+    width: 100%;
+    max-width: 30rem;
+    height: 18rem;
+    background: var(--color-blanco);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
     border-radius: 20px;
-    padding: 20px;
-    grid-area: escudo;
-}
-
-.img-escudo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;    
-    
-}
-
-.titulo {
-    font-size: 3.5em;
-    grid-area: titulo;
-}
-
-.descripcion {
-    font-size: 1em;
-}
-
-.contenedor-estadio,
-.plantel {
-    background-color: var(--color-blanco);
-    color: var(--color-principal);
-    border-radius: 16px;
-    overflow: hidden;             
-}
-
-.contenedor-estadio h2,
-.plantel h2 {
-    background-color: var(--color-secundario);
-    color: var(--color-principal);
-    margin: 0;
-    padding: 0.7em 1.2em;
-    font-size: 1.3em;
-}
-
-.contenedor-img {
-    width: 100%;
-    height: 500px;
-}
-
-.img-estadio {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.contenedor-estadio p {
-    margin: 0;
-    padding: 0.4em 1.2em;
-}
-
-/* --- Tabla del plantel --- */
-.tabla-plantilla {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.tabla-plantilla th {
-    background-color: var(--color-azulado);
+    border: 5px solid var(--color-blanco);
     color: var(--color-blanco);
-    text-align: left;
-    padding: 0.6em 1em;
 }
 
-.tabla-plantilla td {
-    padding: 0.5em 1em;
-    border-bottom: 1px solid var(--color-secundario);
+.img-bandera {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    margin-top: 1.25rem;
 }
 
-.tabla-plantilla tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.03);
+.card-contenido-paises {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0.6rem;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    opacity: 1;
+}
+
+.card-paises:hover .card-contenido-paises {
+    transform: translateY(0);
+}
+
+
+.card-contenido-paises {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.titulo-card-paises {
+    width: 50%;
+    text-align: center;
+    border-bottom: 2px solid white;
+    margin: 0.6rem;
+}
+
+.card-info-paises-1 {
+    width: 50%;
+    text-align: center;
+    margin: 0.6rem;
+    border-bottom: 2px solid white;
+}
+
+.card-info-paises-2 {
+    width: 50%;
+    text-align: center;
+    margin: 0.6rem;
+    border-bottom: 2px solid white;
+}
+
+
+.boton-conocer-mas {
+    display: inline-block;
+    width: 8em;
+    background-color: var(--color-esmeralda);
+    color: var(--color-blanco);
+    padding: 0.6em 1.25em;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.boton-conocer-mas:hover {
+    background: var(--color-gris);
 }
 
 
@@ -99,9 +114,11 @@ main {
         padding: 2em;
     }
 
-    
+    .card-paises {
+        width: 100%;
+    }
 
-    .titulo {
+    .titulo-principal {
         font-size: 3em;
         height: auto;
         margin: 0.5em;
@@ -112,15 +129,7 @@ main {
 
 @media (max-width: 40em) {
 
-    main {
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-        padding: 1em;
-        margin-bottom: 5%;
-    }
-
-
-    .titulo {
+    .titulo-principal {
         font-size: 2em;
         height: auto;
         margin: 0.5em 0;
@@ -128,8 +137,17 @@ main {
     }
 
 
-    
+    main {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 1em;
+        margin-bottom: 5%;
+    }
 
-    
+    .card-paises {
+        width: 100%;
+        height: 250px;
+        margin-top: 0;
+    }
 
 }

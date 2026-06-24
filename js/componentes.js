@@ -11,7 +11,7 @@ function renderizarHeader(basePath = "") {
     // 2. Logo
     const logo = document.createElement("img");
     logo.classList.add("logo-header");
-    logo.src = basePath + "img/logo/logo-header.png";
+    logo.src = basePath + "../img/logo/logo-header.png";
     logo.alt = "logo-header";
     logoContendor.appendChild(logo);
 
@@ -77,7 +77,7 @@ function renderizarFooter(basePath = "") {
 
     const logo = document.createElement("img");
     logo.classList.add("logo-footer");
-    logo.src = basePath + "img/logo/logo-footer.png";
+    logo.src = basePath + "../img/logo/logo-footer.png";
     logo.alt = "logo-footer";
 
     const contenedorRedes = document.createElement("div");
