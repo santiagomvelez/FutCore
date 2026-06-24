@@ -11,7 +11,7 @@ function renderizarHeader(basePath = "") {
     // 2. Logo
     const logo = document.createElement("img");
     logo.classList.add("logo-header");
-    logo.src = basePath + "../img/logo/logo-header.png";
+    logo.src = basePath + "../img/logo/logo-header-blanco.png";
     logo.alt = "logo-header";
     logoContendor.appendChild(logo);
 
@@ -36,8 +36,9 @@ function renderizarHeader(basePath = "") {
     const ul = document.createElement("ul");
 
     const enlaces = [
-        { texto: "Inicio", href: basePath + "index.html" },
-        { texto: "Juegos", href: basePath + "#" },
+        { texto: "Inicio", href: basePath + "../index.html" },
+        { texto: "Equipos", href: basePath + "equipo/equipo.html" },
+        {texto: "Jugadores", href: basePath + "#"},
         { texto: "Ingresar", href: basePath + "auth.html" },
         { texto: "Perfil", href: basePath + "perfil/perfil.html" }
     ]
@@ -115,8 +116,9 @@ function renderizarFooter(basePath = "") {
             titulo: "Menu",
 
             enlaces: [
-                { texto: "Principal", href: "#" },
-                { texto: "Juegos", href: "#" }
+                { texto: "Principal", href: "../index.html" },
+                { texto: "Equipo", href: "../equipo/equipo.html" },
+                {texot: "Jugadores", href: "#"}
             ]
         },
 

@@ -14,6 +14,7 @@
     font-size: 4rem;
     margin-bottom: 1rem;
     letter-spacing: 2px;
+    color: var(--color-texto);
 }
 
 .contenedor-section p {
@@ -22,6 +23,7 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--color-texto-secundario);
 }
 
 .contenedor-botones {
@@ -41,27 +43,30 @@
 
 
 .btn-primario {
-    background-color: #2b6cb0; /* Un azul deportivo o tu verde principal */
-    color: white;
-    border: 2px solid #2b6cb0;
+    background-color: var(--color-primario); 
+    color: #333;
+    border: 2px solid var(--color-primario);
 }
 
 .btn-primario:hover {
     background-color: transparent;
+    color: var(--color-texto);
 }
 
 .btn-secundario {
     background-color: transparent;
     color: white;
-    border: 2px solid white;
+    border: 2px solid var(--color-acento);
 }
 
 .btn-secundario:hover {
-    background-color: white;
+    background-color: var(--color-acento);
     color: #333;
 }
 
 
+
+/* * comienza otro section* */
 .seccion-destacados {
     text-align: center;
     padding: 4rem 2rem;
@@ -71,9 +76,37 @@
 .seccion-destacados h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: var(--color-texto);
     font-family: 'Oswald', sans-serif;
 }
+
+.contenedor-columnas {
+    display: flex;
+    gap: 40px; /* Espacio entre los dos cuadrados */
+    max-width: 1200px; /* Un poco más ancho para que entren bien ambos */
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* El estilo de cada "cuadrado" individual */
+.cuadrado-carrusel {
+    flex: 1; /* Esto hace que ambos ocupen exactamente la mitad (50%) */
+    background-color: var(--color-tarjetas); /* Un gris muuuy clarito para que resalte como un bloque */
+    padding: 20px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra suave para darle volumen */
+}
+
+
+.cuadrado-carrusel h3 {
+    font-size: 1.4rem;
+    font-family: 'Oswald', sans-serif;
+    color: var(--color-texto-secundario);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+
 
 .carrusel-contenedor {
     position: relative;
@@ -103,7 +136,7 @@
     flex: 0 0 calc(50% - 15px);
     min-width: 140px;
     height: 190px;
-    background-color: var(--color-blanco);
+    background-color: var(--color-texto);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -142,8 +175,8 @@
 }
 
 .carrusel-btn {
-    background: #2b6cb0;
-    color: white;
+    background: var(--color-primario);
+    color: var(--color-texto);
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -159,7 +192,7 @@
 }
 
 .carrusel-btn:hover {
-    background-color: #1a4b80;
+    background-color: var(--color-acento);
     transform: scale(1.1);
 }
 
@@ -171,42 +204,6 @@
     right: -10px;
 }
 
-
-
-/* =========================================
-   DISEÑO DE DOS COLUMNAS (Lado a lado)
-   ========================================= */
-
-/* Contenedor Flexbox que pone los cuadrados uno al lado del otro */
-.contenedor-columnas {
-    display: flex;
-    gap: 40px; /* Espacio entre los dos cuadrados */
-    max-width: 1200px; /* Un poco más ancho para que entren bien ambos */
-    margin: 0 auto;
-    justify-content: center;
-}
-
-/* El estilo de cada "cuadrado" individual */
-.cuadrado-carrusel {
-    flex: 1; /* Esto hace que ambos ocupen exactamente la mitad (50%) */
-    background-color: #f8f9fa; /* Un gris muuuy clarito para que resalte como un bloque */
-    padding: 20px 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra suave para darle volumen */
-}
-
-/* El subtítulo adentro de cada cuadrado ("Equipos" / "Jugadores") */
-.cuadrado-carrusel h3 {
-    font-size: 1.4rem;
-    font-family: 'Oswald', sans-serif;
-    color: #2b6cb0;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-/* =========================================
-   ADAPTACIÓN PARA CELULARES (Responsive)
-   ========================================= */
 /* Si la pantalla es más chica que una PC (como una tablet o celular), 
    los ponemos uno arriba del otro para que no se aprieten */
 @media (max-width: 900px) {
