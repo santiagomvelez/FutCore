@@ -7,6 +7,7 @@ const equipos = [
         nombre: "River Plate",
         fundacionClub: "25 de mayo de 1901",
         descripcion: "El Club Atlético River Plate, fundado el 25 de mayo de 1901 en el barrio de La Boca tras la fusión de los clubes Santa Rosa y La Rosales, es una destacada entidad polideportiva argentina cuyo nombre rinde homenaje a la antigua denominación británica del Río de la Plata. Identificado por sus históricos colores blanco, rojo y negro, el equipo compite en la Primera División de Argentina y ejerce su localía en el estadio Mâs Monumental, el recinto con mayor capacidad del continente al albergar a 85.018 espectadores. Consolidado como uno de los clubes más exitosos del mundo, su palmarés totaliza 72 títulos, destacándose como el máximo ganador histórico de campeonatos de Primera División (38) y el más laureado del fútbol argentino desde la profesionalización en 1931, con 69 conquistas. Además, ostenta un gran dominio en las copas nacionales con 16 coronas, siendo el principal vencedor de la Supercopa Argentina y el Trofeo de Campeones, además de sumar tres títulos de la Copa Argentina.",
+        liga: "Liga Profesional de Futbol",
         pais: "Argentina",
         estadio: "https://i.pinimg.com/1200x/ff/a4/dd/ffa4ddca1d6708798058274ebdbe5bff.jpg",
         fundacionEstadio: 1938,
