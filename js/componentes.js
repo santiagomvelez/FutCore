@@ -38,9 +38,9 @@ function renderizarHeader(basePath = "") {
     const enlaces = [
         { texto: "Inicio", href: basePath + "../index.html" },
         { texto: "Equipos", href: basePath + "equipo/equipo.html" },
-        {texto: "Jugadores", href: basePath + "#"},
-        { texto: "Ingresar", href: basePath + "auth.html" },
-        { texto: "Perfil", href: basePath + "perfil/perfil.html" }
+        { texto: "Jugadores", href: basePath + "#" },
+        { texto: "Ingresar", href: basePath + "../auth.html" },
+        { texto: "Perfil", href: basePath + "../perfil/perfil.html" }
     ]
 
     enlaces.forEach(link => {
@@ -118,7 +118,7 @@ function renderizarFooter(basePath = "") {
             enlaces: [
                 { texto: "Principal", href: "../index.html" },
                 { texto: "Equipo", href: "../equipo/equipo.html" },
-                {texot: "Jugadores", href: "#"}
+                { texot: "Jugadores", href: "#" }
             ]
         },
 

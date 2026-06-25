@@ -16,6 +16,14 @@ function renderizarGrilla(lista) {
         escudoImagen.alt = equipo.alt;
         escudoImagen.classList.add("img-bandera");
 
+        // ============================================================
+        // NUEVO: Creamos el botón de favorito para esta tarjeta
+        // La función crearBotonFavorito() viene de favoritos.js
+        // Le pasamos el objeto 'equipo' completo para que sepa
+        // qué datos guardar en localStorage cuando hagan clic
+        // ============================================================
+        const botonDeFavorito = crearBotonFavorito(equipo);
+
         const contenidoPaises = document.createElement("div");
         contenidoPaises.classList.add("card-contenido-paises");
 
@@ -43,7 +51,12 @@ function renderizarGrilla(lista) {
         contenidoPaises.appendChild(paisEquipo);
         contenidoPaises.appendChild(verEquipo);
 
-        seccionCards.append(escudoImagen, contenidoPaises);
+        // ============================================================
+        // NUEVO: Agregamos el botón de favorito a la tarjeta
+        // Lo ponemos FUERA del overlay (contenidoPaises) para que
+        // siempre sea visible, incluso sin hacer hover en la tarjeta
+        // ============================================================
+        seccionCards.append(escudoImagen, botonDeFavorito, contenidoPaises);
 
         div.appendChild(seccionCards);
     });

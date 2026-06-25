@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fut Core - Perfil</title>
+    <link rel="stylesheet" href="../css/componentes.css">
     <link rel="stylesheet" href="../Css/style-perfil.css">
     <link rel="stylesheet" href="../css/style-auth.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +19,11 @@
 
 <body class="fondo-principal texto-blanco">
 
-    <header class="header fondo-secundario">
+    <header class="header">
 
         <div class="logo-contenedor">
-            <a href="../index.html"><img src="../img/Logo/logo-header.png" alt="logo-header" class="logo-header"></a>
+            <a href="../index.html"><img src="../img/Logo/logo-header-blanco.png" alt="logo-header"
+                    class="logo-header"></a>
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -45,7 +47,7 @@
 
         <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
             <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
-                <h2 class="texto-muy-grande texto-esmeralda">Perfil de Usuario</h2>
+                <h2 class="texto-muy-grande texto-blanco">Perfil de Usuario</h2>
             </div>
 
             <form id="formPerfil" class="caja-flexible flex-columna brecha-10" novalidate>
@@ -56,7 +58,7 @@
                     <!-- Mis Datos -->
                     <article class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris">
                         <h3
-                            class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                            class="texto-blanco texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
                             Mis Datos</h3>
 
                         <div class="caja-flexible flex-columna brecha-10 margen-arriba-10">
@@ -95,7 +97,7 @@
                     <!-- Preferencias Futbolísticas -->
                     <article class="tarjeta fondo-gris relleno-20 radio-mediano crecer-1 ancho-minimo-300 borde-gris">
                         <h3
-                            class="texto-esmeralda texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
+                            class="texto-blanco texto-grande margen-abajo-10 relleno-abajo-5 borde-inf-azulado texto-centrado">
                             Preferencias Futbolísticas</h3>
 
                         <div class="caja-flexible flex-columna brecha-10 margen-arriba-10">
@@ -148,7 +150,7 @@
                         <i class="fa-solid fa-floppy-disk"></i> Guardar Perfil
                     </button>
                     <button type="reset" class="boton"
-                        style="background-color: #2a3331; color: #cbd5e0; border: 1px solid #1b7d6d;">
+                        style="background-color: var(--color-tarjetas); color: var(--color-texto-secundario); border: 1px solid var(--color-acento);">
                         <i class="fa-solid fa-eraser"></i> Limpiar
                     </button>
                 </div>
@@ -157,61 +159,26 @@
         </section>
 
 
-        <!-- EQUIPOS FAVORITOS (se mantiene igual) -->
+        <!-- EQUIPOS FAVORITOS (se cargan dinámicamente desde localStorage) -->
 
         <section class="fondo-oscuro radio-grande margen-auto relleno-20 sombra ancho-100 borde-sup-azulado">
             <div class="texto-centrado margen-abajo-20 relleno-abajo-10 borde-inf-azulado">
-                <h2 class="texto-muy-grande texto-esmeralda">Mis Equipos Favoritos</h2>
+                <h2 class="texto-muy-grande texto-blanco">Mis Equipos Favoritos</h2>
             </div>
 
-            <div class="cuadricula-favoritos brecha-20">
-
-                <!-- Equipo 1: Boca Juniors -->
-                <article
-                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/250px-CABJ70.png"
-                            alt="Boca Juniors" class="ancho-100 alto-100"
-                            style="object-fit: contain; background: #fff; padding: 10px;">
-                    </div>
-                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
-                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Boca Juniors</h4>
-                        <p class="texto-secundario texto-chico margen-abajo-15">Liga Profesional de Fútbol (ARG)</p>
-                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
-                    </div>
-                </article>
-
-                <!-- Equipo 2: Flamengo -->
-                <article
-                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Flamengo-RJ_%28BRA%29.png"
-                            alt="Flamengo" class="ancho-100 alto-100"
-                            style="object-fit: contain; background: #fff; padding: 10px;">
-                    </div>
-                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
-                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Flamengo</h4>
-                        <p class="texto-secundario texto-chico margen-abajo-15">Brasileirão (BRA)</p>
-                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
-                    </div>
-                </article>
-
-                <!-- Equipo 3: Vélez Sarsfield -->
-                <article
-                    class="fondo-gris radio-mediano ocultar-excedente escala-hover borde-gris caja-flexible flex-columna estirar">
-                    <div class="imagen-cubrir alto-150 borde-inf-azulado">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Escudo_de_V%C3%A9lez.jpg/960px-Escudo_de_V%C3%A9lez.jpg"
-                            alt="Vélez Sarsfield" class="ancho-100 alto-100"
-                            style="object-fit: contain; background: #fff; padding: 10px;">
-                    </div>
-                    <div class="relleno-15 caja-flexible flex-columna alinear-centro texto-centrado crecer-1">
-                        <h4 class="texto-mediano margen-abajo-5 texto-esmeralda">Vélez Sarsfield</h4>
-                        <p class="texto-secundario texto-chico margen-abajo-15">Liga Profesional de Fútbol (ARG)</p>
-                        <button class="boton boton-esmeralda ancho-100 margen-sup-auto">Ver Detalles</button>
-                    </div>
-                </article>
-
+            <!-- Este div vacío se llena dinámicamente desde perfil.js -->
+            <!-- El id 'grilla-favoritos' es el que usamos en JS para encontrarlo -->
+            <div id="grilla-favoritos" class="cuadricula-favoritos brecha-20">
+                <!-- Los favoritos se inyectan aquí con JavaScript -->
             </div>
+
+            <!-- Mensaje que se muestra cuando no hay favoritos guardados -->
+            <p id="mensaje-sin-favoritos" class="texto-secundario texto-centrado relleno-20" style="display: none;">
+                No tenés equipos favoritos todavía. ¡Andá a la sección de
+                <a href="../equipo/equipo.html"
+                    style="color: var(--color-esmeralda); text-decoration: underline;">Equipos</a>
+                y marcá tus favoritos con la estrella ⭐!
+            </p>
         </section>
     </main>
 

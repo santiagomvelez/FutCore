@@ -1,11 +1,11 @@
 :root {
-    --color-esmeralda: #018a73;
-    --color-azulado: #1b7d6d;
-    --color-oscuro: #1f4a43;
-    --color-principal: #203330;
-    --color-gris: #2a3331;
-    --color-blanco: #ffffff;
-    --color-secundario: #cbd5e0;
+    --color-esmeralda: var(--color-primario);
+    --color-azulado: var(--color-acento);
+    --color-oscuro: var(--color-tarjetas);
+    --color-principal: var(--color-fondo);
+    --color-gris: var(--color-tarjetas);
+    --color-blanco: var(--color-texto);
+    --color-secundario: var(--color-texto-secundario);
 }
 
 :root {
@@ -28,7 +28,7 @@
 body {
     background: var(--color-fondo);
     font-family: 'Roboto', sans-serif;
-    color: var(--color-blanco);
+    color: var(--color-texto);
 }
 
 
@@ -71,7 +71,7 @@ footer {
     display: none;
     border: none;
     background: none;
-    color: var(--color-blanco);
+    color: var(--color-texto);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0;
@@ -107,7 +107,7 @@ footer {
 }
 
 .nav-header ul a {
-    color: var(--color-blanco);
+    color: var(--color-texto);
     text-decoration: none;
 }
 
@@ -174,7 +174,7 @@ footer {
 
 .footer-seccion h3 {
     color: var(--color-texto);
-    border-bottom: 1px solid var(--color-blanco);
+    border-bottom: 1px solid var(--color-texto);
     margin-bottom: 0.5rem;
     padding-bottom: 0.3rem;
 
@@ -245,7 +245,7 @@ footer {
         position: absolute;
         top: 10vh;
         left: 0;
-        background: var(--color-azulado);
+        background: var(--color-acento);
         padding: 1em;
         z-index: 99;
         height: auto;
