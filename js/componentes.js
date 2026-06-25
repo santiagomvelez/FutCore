@@ -9,11 +9,17 @@ function renderizarHeader(basePath = "") {
     logoContendor.classList.add("logo-contenedor");
 
     // 2. Logo
+
+    const logoVolver =document.createElement("a");
+    logoVolver.href = basePath + "../index.html";
+
     const logo = document.createElement("img");
     logo.classList.add("logo-header");
     logo.src = basePath + "../img/logo/logo-header-blanco.png";
     logo.alt = "logo-header";
-    logoContendor.appendChild(logo);
+
+    logoContendor.appendChild(logoVolver);
+    logoVolver.appendChild(logo);
 
 
     const checkbox = document.createElement("input");
@@ -37,10 +43,10 @@ function renderizarHeader(basePath = "") {
 
     const enlaces = [
         { texto: "Inicio", href: basePath + "../index.html" },
-        { texto: "Equipos", href: basePath + "equipo/equipo.html" },
-        {texto: "Jugadores", href: basePath + "jugadores/jugadores.html"},
-        { texto: "Ingresar", href: basePath + "auth.html" },
-        { texto: "Perfil", href: basePath + "perfil/perfil.html" }
+        { texto: "Equipos", href: basePath + "../equipo/equipo.html" },
+        {texto: "Jugadores", href: basePath + "../jugadores/jugadores.html"},
+        { texto: "Ingresar", href: basePath + "../ingreso/auth.html"},
+        { texto: "Perfil", href: basePath + "../perfil/perfil.html" }
     ]
 
     enlaces.forEach(link => {
@@ -118,7 +124,7 @@ function renderizarFooter(basePath = "") {
             enlaces: [
                 { texto: "Principal", href: "../index.html" },
                 { texto: "Equipo", href: "../equipo/equipo.html" },
-                { texot: "Jugadores", href: "#" }
+                { texto: "Jugadores", href: "../jugadores/jugadores.html" }
             ]
         },
 

@@ -1,7 +1,10 @@
-const inputBusqueda = document.getElementById("search");
+
 
 function renderizarGrilla(lista) {
     const div = document.getElementById("div-placeholder");
+
+    if (!div) return;
+
     div.classList.add("contenedor-items");
     div.innerHTML = "";
 
@@ -44,8 +47,6 @@ function renderizarGrilla(lista) {
         verEquipo.href = "../equipo/detalle-equipo.html?id=" + equipo.id;
         verEquipo.classList.add("boton-conocer-mas");
 
-
-
         contenidoPaises.appendChild(tituloCard);
         contenidoPaises.appendChild(ligaEquipo);
         contenidoPaises.appendChild(paisEquipo);
@@ -63,7 +64,7 @@ function renderizarGrilla(lista) {
 
 }
 
-inputBusqueda.addEventListener("keyup", (e) => {
+/*inputBusqueda.addEventListener("keyup", (e) => {
     const textoBuscado = e.target.value.toLowerCase();
 
     const equipoFiltrado = equipos.filter(equipo =>
@@ -73,6 +74,68 @@ inputBusqueda.addEventListener("keyup", (e) => {
     );
 
     renderizarGrilla(equipoFiltrado);
+});*/
 
+function cargarOpcionesFiltros() {
+    const selectPais = document.getElementById("filtro-pais");
+
+    // A. Llenamos el select de Países (sin repetir)
+    if (selectPais) {
+        // Obtenemos todos los países, usamos Set para eliminar repetidos y sort() para ordenarlos de la A a la Z
+        const paisesUnicos = [...new Set(equipos.map(eq => eq.pais))].sort();
+        
+        paisesUnicos.forEach(pais => {
+            const option = document.createElement("option");
+            option.value = pais;
+            option.textContent = pais;
+            selectPais.appendChild(option);
+        });
+    }
+}
+
+
+function aplicarFiltros() {
+    const q = document.getElementById("search").value.toLowerCase().trim();
+    
+    // Usamos 'todos' como valor por defecto por si algún select no existe en la página
+    const paisSeleccionado = document.getElementById("filtro-pais") ? document.getElementById("filtro-pais").value : "todos";
+
+
+    // Filtramos el array de equipos original
+    const filtrados = equipos.filter(equipo => {
+        // A. Filtro del Select de País
+        const coincidePais = paisSeleccionado === "todos" || equipo.pais === paisSeleccionado;
+
+
+        // B. Filtro de Texto (Busca en nombre, país o liga)
+        const coincideTexto = equipo.nombre.toLowerCase().includes(q) ||
+                              equipo.pais.toLowerCase().includes(q) ||
+                              (equipo.liga && equipo.liga.toLowerCase().includes(q));
+
+        // Solo devuelve TRUE si el equipo cumple con LOS TRES filtros a la vez
+        return coincidePais && coincideTexto;
+    });
+
+    // Renderizamos la grilla con los resultados
+    renderizarGrilla(filtrados);
+}
+
+// ============================================================
+// 4. INICIALIZACIÓN Y EVENTOS
+// ============================================================
+// Atrapamos los elementos del HTML
+const inputBusqueda = document.getElementById("search");
+const selectPais = document.getElementById("filtro-pais");
+
+
+// Les pegamos los escuchadores apuntando a la función maestra
+// Nota: Usamos "input" en vez de "keyup" para detectar también cuando borran con la crucecita o pegan con el mouse
+if (inputBusqueda) inputBusqueda.addEventListener("input", aplicarFiltros);
+if (selectPais) selectPais.addEventListener("change", aplicarFiltros);
+
+
+// Cuando la página termina de cargar, llenamos los combos y dibujamos todo
+window.addEventListener("load", () => {
+    cargarOpcionesFiltros();
+    renderizarGrilla(equipos); 
 });
-

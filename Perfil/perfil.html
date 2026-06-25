@@ -19,25 +19,8 @@
 
 <body class="fondo-principal texto-blanco">
 
-    <header class="header">
+    <header class="header" id="header-placeholder">
 
-        <div class="logo-contenedor">
-            <a href="../index.html"><img src="../img/Logo/logo-header-blanco.png" alt="logo-header"
-                    class="logo-header"></a>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="btn-hamburguesa">
-            <i class="fa-solid fa-bars"></i>
-        </label>
-
-        <nav class="nav-header">
-            <ul>
-                <li><a href="../index.html">Principal</a></li>
-                <li><a href="#">Juegos</a></li>
-                <li><a href="#">Equipos</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main class="contenedor relleno-vertical-20 relleno-horizontal-10 caja-flexible flex-columna brecha-20">
@@ -184,49 +167,14 @@
 
 
 
-    <footer>
-        <div class="cotenedor-footer">
-            <div class="contenedor-logo">
-                <img src="../img/logo/logo-footer.png" alt="logo-Footer" class="logo-footer">
-                <div class="contenedor-redes">
-                    <h4>Nuestras redes:</h4>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                </div>
-            </div>
-
-            <section class="footer-seccion">
-                <h3>Menu</h3>
-                <ul>
-                    <li><a href="../index.html">Principal</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Mi Perfil</a></li>
-                </ul>
-            </section>
-
-            <section class="footer-seccion">
-                <h3>Contacto</h3>
-                <ul>
-                    <li><a href="">Email</a></li>
-                    <li><a href="">WhatsApp</a></li>
-                </ul>
-            </section>
-
-            <section class="footer-seccion">
-                <h3>Ayuda</h3>
-                <ul>
-                    <li><a href="">Preguntas Frecuentes</a></li>
-                    <li><a href="">Soporte</a></li>
-                </ul>
-            </section>
-
-        </div>
-
-        <p class="footer-copy">© 2026 FutCore. Todos los derechos reservados</p>
-    </footer>
+    <footer id="footer-placeholder"></footer>
 
     <script src="../js/perfil.js"></script>
+    <script src="../js/componentes.js"></script>
+    <script>
+        renderizarHeader();
+        renderizarFooter();
+    </script>
 
 </body>
 

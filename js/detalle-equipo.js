@@ -52,7 +52,7 @@ function renderizarDetalleEquipo() {
     infoFila.classList.add("info-fila");
     infoFila.innerHTML = `<span><i class="fa-solid fa-trophy"></i> ${equipo.liga ?? "Liga Profesional"}</span>
         <span><i class="fa-solid fa-flag"></i> ${equipo.pais}</span>
-        <span><i class="fa-regular fa-calendar"></i> Fundado en ${equipo.fundacion}</span>
+        <span><i class="fa-regular fa-calendar"></i> Fundado el ${equipo.fundacionClub}</span>
         <span><i class="fa-solid fa-location-dot"></i> ${equipo.ubicacion}</span>`;
     
 
@@ -89,10 +89,10 @@ function renderizarDetalleEquipo() {
     nombreEstadio.innerHTML = `<i class="fa-solid fa-building"></i> <b>Nombre:</b> ${equipo.nombreEstadio}`;
 
     const capacidadEstadio = document.createElement("p");
-    capacidadEstadio.innerHTML =`<i class="fa-solid fa-users"></i> <b>Capacidad:</b> ${equipo.capacidad} Capacidad`;
+    capacidadEstadio.innerHTML =`<i class="fa-solid fa-users"></i> <b>Capacidad:</b> ${equipo.capacidad}`;
 
     const fundacionEstadio = document.createElement("p");
-    fundacionEstadio.innerHTML = `<i class="fa-regular fa-calendar"></i> <b>Fundacion:</b> ${equipo.fundacion}`;
+    fundacionEstadio.innerHTML = `<i class="fa-regular fa-calendar"></i> <b>Fundacion:</b> ${equipo.fundacionEstadio}`;
 
     const ciudadEstadio = document.createElement("p");
     ciudadEstadio.innerHTML = `<i class="fa-solid fa-location-dot"></i> <b>Ubicacion:</b> ${equipo.ubicacion}`;

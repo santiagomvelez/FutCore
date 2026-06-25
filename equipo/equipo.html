@@ -30,9 +30,18 @@
         </section>
     
         
+        
+
         <section class="buscador-container">
             <div class="buscador">
-                <input type="text" id="search" placeholder="Buscar equipos...">
+                <div class="grupo-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search" placeholder="Buscar por nombre...">
+                </div>
+                
+                <select id="filtro-pais" class="filtro-select">
+                    <option value="todos">Todos los países</option>
+                    </select>
             </div>
         </section>
     
@@ -56,9 +65,6 @@
         renderizarFooter("");
         renderizarGrilla(equipos);
     </script>
-
-
-
 </body>
 
 </html>
