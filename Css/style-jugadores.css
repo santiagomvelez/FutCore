@@ -47,18 +47,27 @@
     justify-content: space-between;
 }
 
+.grupo-input {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 12px;
+}
+
+.grupo-input i {
+    color: var(--color-acento);
+    font-size: 1.1rem;
+}
+
 .buscador input{
     flex:1;
-    width: 650px;
+    width: 100%;
     background:transparent;
     border:none;
     outline:none;
     color:white;
-    font-size:1.1rem;
+    font-size: 1.1rem;
 }
-
-
-
 
 .buscador select{
     background:var(--color-tarjetas);
@@ -141,4 +150,60 @@
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+@media (max-width: 64em) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .buscador {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .buscador input  {
+        width: 100%;
+    }
+
+    #main-jugadores {
+        width: 95%;
+    }
+}
+
+@media (max-width: 40em) {
+    
+    .hero {
+        padding: 40px 15px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .buscador {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .buscador input,
+    .buscador select {
+        width: 100%;
+        text-align: center; 
+    }
+
+    .buscador select {
+        padding: 10px 0; 
+    }
+
+    
+    #main-jugadores {
+        width: 100%;
+        padding: 0 15px; 
+    }
 }

@@ -111,9 +111,11 @@
 .carrusel-contenedor {
     position: relative;
     max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    padding: 0 40px;
 }
 
 
@@ -172,6 +174,9 @@
     margin-top: 5px !important;
     text-align: center;
     line-height: 1.2;
+    width: 100%;
+    overflow-wrap: break-word;
+    padding: 0 5px;
 }
 
 .carrusel-btn {
@@ -197,17 +202,68 @@
 }
 
 #btn-ant-equipos, #btn-ant-jugadores {
-    left: -10px;
+    left: 0;
 }
 
 #btn-sig-equipos, #btn-sig-jugadores {
-    right: -10px;
+    right: 0;
 }
 
 /* Si la pantalla es más chica que una PC (como una tablet o celular), 
    los ponemos uno arriba del otro para que no se aprieten */
-@media (max-width: 900px) {
+
+
+/* *Responsive* */
+@media (max-width: 64em) {
     .contenedor-columnas {
         flex-direction: column;
+        width: 80%;
+    }
+}
+
+@media (max-width: 40em) {
+
+    .contenedor-section {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .contenedor-section h1{
+        font-size: 2.5rem;
+    }
+
+    .contenedor-section p {
+        font-size: 1rem;
+    }
+
+    .contenedor-botones {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primario, .btn-secundario {
+        width: 100%;
+    }
+
+
+
+
+    .seccion-destacados h2 {
+        font-size: 1.5em;
+        font-family: 'oswals' sans-serif;
+    }
+
+    .carrusel-tarjeta {
+        flex: 0 0 100%;
+        min-width: 150px;
+    }
+    
+    .carrusel-contenedor {
+        width: 100%;
+    }
+
+    .cuadrado-carrusel h3 {
+        font-size: 1em;
+        
     }
 }

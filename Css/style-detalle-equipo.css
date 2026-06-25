@@ -107,12 +107,7 @@ main {
     color: var(--color-primario);
 }
 
-
-
-
-
 /* *ESTADIO* */
-
 .contenedor-estadio .contenedor-img {
     margin-bottom: 8px;
 }
@@ -273,12 +268,30 @@ main {
         padding: 1em;
     }
 
+    .contenedor-escudo {
+        width: 220px;
+        min-width: 220px;
+        height: 220px;
+    }
+
+    .titulo {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-img {
+        height: 300px;
+    }
+
     .contenido-equipo {
         grid-template-columns: 1fr;
     }
+
+    .contenedor-estadio, .plantel {
+        min-height: auto;
+    }
 }
 
-@media (max-width: 40em) {
+@media (max-width: 40em)    {
     main {
         width: 100%;
         padding: 0.5em;
@@ -286,5 +299,74 @@ main {
 
     .cabecera-equipo {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
     }
+
+    .contenedor-escudo {
+        width: 200px;
+        min-width: 200px;
+        height: 200px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .info-fila {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .info-fila span {
+        width: 45%;
+        justify-content: center;
+        margin-bottom: 5px;
+    };
+
+    .descripcion {
+        font-size: 0.95rem;
+    }
+
+    .contenedor-img {
+        height: 200px;
+        width: 100%;
+        padding: 0;
+    }
+
+    .img-estadio {
+        border-radius: 0;
+    }
+
+    .contenedor-estadio p {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    .cabecera-plantel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .buscador-jugador {
+        width: 100%;
+    }
+
+    .plantel {
+        overflow-x: auto;
+    }
+
+    .tabla-plantilla {
+        min-width: 600px;
+    }
+
+    .tabla-plantilla th,
+    .tabla-plantilla td {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
 }
