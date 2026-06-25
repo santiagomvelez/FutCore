@@ -8,6 +8,7 @@
 .hero h1{
     font-size: 4rem;
     font-weight:700;
+    color: var(--color-texto);
 }
 
 .hero p{
@@ -93,7 +94,7 @@
     margin-top: 2rem;
     border-radius: 20px;
     border: 5px solid rgba(52,211,153,.3);
-    color: var(--color-blanco);
+    color: var(--color-texto);
 }
 
 .card-paises:hover {
@@ -163,7 +164,7 @@
     display: inline-block;
     width: 8em;
     background-color: var(--color-primario);
-    color: var(--color-blanco);
+    color: var(--color-texto);
     padding: 0.6em 1.25em;
     border-radius: 5px;
     text-decoration: none;

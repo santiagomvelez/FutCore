@@ -1,0 +1,144 @@
+#main-jugadores {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.hero{
+    text-align:center;
+    padding:70px 20px 30px;
+}
+
+.hero h1{
+    font-size: 4rem;
+    font-weight:700;
+}
+
+.hero p{
+    color:var(--color-texto-secundario);
+    font-size:1.5rem;
+}
+
+.linea{
+    width:80px;
+    height:4px;
+    background:var(--color-primario);
+    margin:20px auto;
+    border-radius:50px;
+}
+
+
+.buscador-container{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+
+.buscador{
+    width: 900px;
+    display:flex;
+    gap:15px;
+    background:var(--color-tarjetas);
+    border:1px solid rgba(52,211,153,.3);
+    padding:15px;
+    border-radius:20px;
+    justify-content: space-between;
+}
+
+.buscador input{
+    flex:1;
+    width: 650px;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:1.1rem;
+}
+
+
+
+
+.buscador select{
+    background:var(--color-tarjetas);
+    border:none;
+    color:white;
+    padding:0 20px;
+    border-radius:12px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.card-jugador {
+    background: var(--color-tarjetas);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .05);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card-jugador:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primario);
+}
+
+.card-jugador-header {
+    background: rgba(16, 185, 129, 0.12);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jugador-numero {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.jugador-posicion {
+    font-size: 0.75rem;
+    color: var(--color-texto-secundario);
+    text-align: right;
+}
+
+.card-jugador-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.jugador-nombre {
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.jugador-edad,
+.jugador-nacionalidad,
+.jugador-equipo {
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.jugador-edad i {
+    color: var(--color-primario);
+}
+
+.jugador-nacionalidad img {
+    border-radius: 2px;
+}
+
+.escudo-mini {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}

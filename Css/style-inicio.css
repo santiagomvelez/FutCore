@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--color-blanco);
+    color: var(--color-texto);
     border-bottom: 2px solid grey;
     margin-bottom: 20px;
 }
