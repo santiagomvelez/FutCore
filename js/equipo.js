@@ -146,7 +146,7 @@ const equipos = [
 
     {
         id: 4,
-        escudo: "https://i.pinimg.com/1200x/46/77/37/4677374ecd7e30c68811186071db1c28.jpg",
+        escudo: "https://i.pinimg.com/736x/63/f8/b8/63f8b8f130744f2e01960ed18c5f8c2f.jpg",
         alt: "Escudo Barcelona",
         nombre: "FC Barcelona",
         descripcion: "El Fútbol Club Barcelona, conocido popularmente como Barça y cuyos hinchas reciben el apelativo de «culés» o «blaugranas», es una emblemática entidad polideportiva fundada el 29 de noviembre de 1899 con sede en Barcelona, España. Destaca a nivel institucional por ser propiedad de sus más de 143.000 socios en lugar de una sociedad anónima deportiva, y por ostentar el honor de participar ininterrumpidamente en la Primera División de España desde su creación en 1929, certamen del cual fue su primer campeón histórico. Consolidado como uno de los gigantes del deporte, domina el palmarés nacional con 80 campeonatos y suma 22 trofeos internacionales, un desempeño que lo llevó a ser reconocido por la IFFHS como el mejor equipo mundial de las dos primeras décadas del siglo XXI. Además de sus hitos históricos —como ser el equipo con más presencias en los podios del Balón de Oro—, la institución brilla por su carácter polideportivo en disciplinas como el baloncesto, el balonmano o el fútbol sala, y destaca por ser el primer club europeo en coronarse campeón continental y lograr el triplete tanto con su primer equipo de fútbol masculino como con el femenino.",

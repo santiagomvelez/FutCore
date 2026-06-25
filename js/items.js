@@ -1,9 +1,9 @@
 const inputBusqueda = document.getElementById("search");
 
 function renderizarGrilla(lista) {
-    const main = document.getElementById("main-placeholder");
-    main.classList.add("main");
-    main.innerHTML = "";
+    const div = document.getElementById("div-placeholder");
+    div.classList.add("contenedor-items");
+    div.innerHTML = "";
 
     
     lista.forEach(equipo => {
@@ -45,7 +45,7 @@ function renderizarGrilla(lista) {
 
         seccionCards.append(escudoImagen, contenidoPaises);
 
-        main.appendChild(seccionCards);
+        div.appendChild(seccionCards);
     });
 
 }

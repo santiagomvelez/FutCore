@@ -1,135 +1,290 @@
 main {
-    width: 100%;
+    width: 90%;
+    margin: 30px auto;
     min-height: 100vh;
-    display: grid;
-    grid-template-areas: 
-        "escudo titulo"
-        "estadio plantel";
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    padding: 10px;
+}
+
+.volver-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-primario);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.volver-link:hover {
+    color: var(--color-acento);
+}
+
+.cabecera-equipo {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .contenedor-escudo {
-    width: 50%;
-    background-color: var(--color-blanco);
-    height: 15rem;
+    width: 280px;
+    min-width: 280px;
+    height: 280px;
+    background-color: var(--color-tarjetas);
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    grid-area: escudo;
 }
 
 .img-escudo {
     width: 100%;
     height: 100%;
-    object-fit: contain;    
-    
+    object-fit: contain;
+}
+
+.contenedor-info {
+    flex: 1;
 }
 
 .titulo {
-    font-size: 3.5em;
-    grid-area: titulo;
+    color: var(--color-texto);
+    font-size: 3rem;
+    margin-bottom: 10px ;
+}
+
+.info-fila {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.info-fila span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+}
+
+.info-fila i {
+    color: var(--color-primario);
 }
 
 .descripcion {
-    font-size: 1em;
+    color:  var(--color-texto-secundario);
+    font-size: 1rem;
+    line-height: 1.8;
+    
 }
 
-.contenedor-estadio,
-.plantel {
-    background-color: var(--color-blanco);
-    color: var(--color-principal);
-    border-radius: 16px;
-    overflow: hidden;             
+
+.contenido-equipo {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    align-items: stretch;
 }
 
-.contenedor-estadio h2,
-.plantel h2 {
-    background-color: var(--color-secundario);
-    color: var(--color-principal);
+
+.contenedor-estadio, .plantel {
+    background: linear-gradient(180deg, rgba(30,41,59, 0.95) 0%, rgba(30,41,59, 0.85) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .05);
+    min-height: 600px;
+}
+
+.contenedor-estadio h2, .plantel h2 {
+    background: transparent;
+    color: var(--color-texto);
+    padding: 18px 24px;
     margin: 0;
-    padding: 0.7em 1.2em;
-    font-size: 1.3em;
+    font-size: 1.4rem;
+} 
+
+.contenedor-estadio h2 i, .plantel h2 i {
+    color: var(--color-primario);
+}
+
+
+
+
+
+/* *ESTADIO* */
+
+.contenedor-estadio .contenedor-img {
+    margin-bottom: 8px;
 }
 
 .contenedor-img {
-    width: 100%;
-    height: 500px;
+    width: 90%;
+    height: 400px;
+    overflow: hidden;
+    padding: 12px;
+    margin: 0 auto;
 }
 
 .img-estadio {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .contenedor-estadio p {
-    margin: 0;
-    padding: 0.4em 1.2em;
+    color: var(--color-texto);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, .05) ;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* --- Tabla del plantel --- */
+.contenedor-estadio p i {
+    color: var(--color-primario);
+    width: 16px;
+    text-align: center;
+}
+
+
+.contenedor-estadio p:last-child {
+    border-bottom: none;
+}
+
+/* *BUSCADOR * */
+.buscador-jugador {
+    width: 220px;
+    padding: 8px 14px;
+    background: var(--color-fondo);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    color: var(--color-texto);
+    font-size: 0.85rem;
+}
+
+
+.buscador-jugador:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+
+/* *PLANTEL* */
+
+.plantel {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.cabecera-plantel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.cabecera-plantel h2 {
+    flex: 1;
+}
+
 .tabla-plantilla {
     width: 100%;
     border-collapse: collapse;
+    flex: 1;
 }
 
-.tabla-plantilla th {
-    background-color: var(--color-azulado);
-    color: var(--color-blanco);
-    text-align: left;
-    padding: 0.6em 1em;
+.tabla-plantilla tr {
+    background: transparent;
+    border-bottom: 1px solid rgba(16,185,129,.08);
 }
+
+
+
+.tabla-plantilla th{
+    background: transparent;
+    color: var(--color-primario);
+    text-align: left;
+    padding: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+
 
 .tabla-plantilla td {
-    padding: 0.5em 1em;
-    border-bottom: 1px solid var(--color-secundario);
+    color:  var(--color-texto);
+    padding: 14px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    vertical-align: middle;
+    margin-right: 6px;
+    border-radius: 2px;
 }
 
-.tabla-plantilla tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.03);
+
+.tabla-plantilla tr:hover {
+    background: rgba(16,185,129,.08);
+}
+
+.tabla-plantilla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.paginacion{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.paginacion button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    background:var(--color-tarjetas);
+    color:var(--color-texto);
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.paginacion button:hover{
+    background:var(--color-primario);
+}
+
+.paginacion button.activo{
+    background:var(--color-primario);
+    color:white;
+}
+
+.paginacion button:disabled{
+    opacity: 0.4;
+    cursor:not-allowed;
 }
 
 
 @media (max-width: 64em) {
-
     main {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2em;
-        padding: 2em;
+        width: 95%;
+        padding: 1em;
     }
 
-    
-
-    .titulo {
-        font-size: 3em;
-        height: auto;
-        margin: 0.5em;
-        padding: 0.5em;
+    .contenido-equipo {
+        grid-template-columns: 1fr;
     }
 }
 
-
 @media (max-width: 40em) {
-
     main {
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-        padding: 1em;
-        margin-bottom: 5%;
-    }
-
-
-    .titulo {
-        font-size: 2em;
-        height: auto;
-        margin: 0.5em 0;
+        width: 100%;
         padding: 0.5em;
     }
 
-
-    
-
-    
-
+    .cabecera-equipo {
+        flex-direction: column;
+    }
 }
