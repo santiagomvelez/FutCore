@@ -32,7 +32,7 @@
 footer {
     width: 100%;
     height: auto;
-    background: var(--color-esmeralda);
+    background: var(--color-tarjetas);
     padding: 2rem 3rem;
     font-size: 1.25rem;
     letter-spacing: 0.1rem;
@@ -85,7 +85,7 @@ footer {
 
 
 .footer-seccion h3 {
-    border-bottom: 1px solid var(--color-blanco); 
+    border-bottom: 1px solid var(--color-texto); 
     margin-bottom: 0.5rem; 
     padding-bottom: 0.3rem; 
     
@@ -103,12 +103,12 @@ footer {
 
 .footer-seccion a {
     text-decoration: none;
-    color: var(--color-blanco);
+    color: var(--color-texto);
     
 }
 
 .footer-seccion a:hover, .contenedor-redes a:hover{
-    color: var(--color-oscuro);
+    color: var(--color-tarjetas);
 }
 
 .footer-copy {
@@ -125,10 +125,10 @@ footer {
     padding: 14px 16px;
     margin-top: 8px;
     margin-bottom: 20px;
-    border: 2px solid var(--color-azulado);
+    border: 2px solid var(--color-acento);
     border-radius: 8px;
-    background-color: var(--color-gris);
-    color: var(--color-blanco);
+    background-color: var(--color-tarjetas);
+    color: var(--color-texto);
     font-size: 1.1rem;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
@@ -136,15 +136,15 @@ footer {
 
 .input-formulario:focus {
     outline: none;
-    border-color: var(--color-esmeralda);
-    background-color: var(--color-principal);
+    border-color: var(--color-primario);
+    background-color: var(--color-fondo);
     box-shadow: 0 0 8px rgba(1, 138, 115, 0.6);
     transform: translateY(-2px);
 }
 
 .label-formulario {
     display: block;
-    color: var(--color-secundario);
+    color: var(--color-texto-secundario);
     font-size: 1rem;
     font-weight: 500;
 }
@@ -174,8 +174,8 @@ footer {
     position: fixed;
     top: 20px;
     left: 20px;
-    background-color: var(--color-azulado);
-    color: var(--color-blanco);
+    background-color: var(--color-acento);
+    color: var(--color-texto);
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 6px;
@@ -187,8 +187,8 @@ footer {
 }
 
 .enlace-volver:hover {
-    background-color: var(--color-gris);
-    color: var(--color-blanco);
+    background-color: var(--color-tarjetas);
+    color: var(--color-texto);
 }
 
 

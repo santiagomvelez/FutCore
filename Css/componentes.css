@@ -235,7 +235,7 @@ footer {
         position: absolute;
         top: 10vh;
         left: 0;
-        background: var(--color-azulado);
+        background: var(--color-acento);
         padding: 1em;
         z-index: 99;
         height: auto;

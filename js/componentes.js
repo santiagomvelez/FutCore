@@ -118,7 +118,7 @@ function renderizarFooter(basePath = "") {
             enlaces: [
                 { texto: "Principal", href: "../index.html" },
                 { texto: "Equipo", href: "../equipo/equipo.html" },
-                {texot: "Jugadores", href: "#"}
+                { texot: "Jugadores", href: "#" }
             ]
         },
 

@@ -5,19 +5,19 @@
 }
 
 :root {
-    --color-esmeralda: #018a73;
-    --color-azulado: #1b7d6d;
-    --color-oscuro: #1f4a43;
-    --color-principal: #203330;
-    --color-gris: #2a3331;
-    --color-blanco: #ffffff;
-    --color-secundario: #cbd5e0;
+    --color-esmeralda: var(--color-primario);
+    --color-azulado: var(--color-acento);
+    --color-oscuro: var(--color-tarjetas);
+    --color-principal: var(--color-fondo);
+    --color-gris: var(--color-tarjetas);
+    --color-blanco: var(--color-texto);
+    --color-secundario: var(--color-texto-secundario);
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #003a3a;
-    color: #ffffff;
+    background: var(--color-fondo);
+    color: var(--color-texto);
 }
 
 
@@ -37,8 +37,7 @@ nav a {
 .header {
     width: 100%;
     height: 10vh;
-    background-color: var(--color-azulado);
-    border-bottom: 5px solid var(--color-gris);
+    background-color: var(--color-tarjetas);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,11 +56,12 @@ nav a {
     height: 100%;
     object-fit: contain;
 }
+
 .btn-hamburguesa {
     display: none;
     border: none;
     background: none;
-    color: var(--color-blanco);
+    color: var(--color-texto);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0;
@@ -102,7 +102,7 @@ nav a {
 }
 
 .nav-header a:hover {
-    color: var(--color-oscuro);
+    color: var(--color-tarjetas);
 }
 
 
@@ -113,33 +113,33 @@ nav a {
 
 
 body.fondo-principal {
-    background-color: var(--color-principal);
+    background-color: var(--color-fondo);
 }
 
 /* Colores de Fondo */
 .fondo-secundario {
-    background-color: var(--color-azulado);
+    background-color: var(--color-acento);
 }
 
 .fondo-oscuro {
-    background-color: var(--color-oscuro);
+    background-color: var(--color-tarjetas);
 }
 
 .fondo-gris {
-    background-color: var(--color-gris);
+    background-color: var(--color-tarjetas);
 }
 
 /* Colores de Texto */
 .texto-esmeralda {
-    color: var(--color-esmeralda);
+    color: var(--color-primario);
 }
 
 .texto-blanco {
-    color: var(--color-blanco);
+    color: var(--color-texto);
 }
 
 .texto-secundario {
-    color: var(--color-secundario);
+    color: var(--color-texto-secundario);
 }
 
 /* Tipografía */
@@ -166,11 +166,11 @@ body.fondo-principal {
 
 /* Bordes */
 .borde-inf-azulado {
-    border-bottom: 2px solid var(--color-azulado);
+    border-bottom: 2px solid var(--color-acento);
 }
 
 .borde-sup-azulado {
-    border-top: 2px solid var(--color-azulado);
+    border-top: 2px solid var(--color-acento);
 }
 
 .borde-gris {
@@ -348,12 +348,12 @@ body.fondo-principal {
 }
 
 .boton-esmeralda {
-    background-color: var(--color-esmeralda);
-    color: var(--color-blanco);
+    background-color: var(--color-primario);
+    color: var(--color-texto);
 }
 
 .boton-esmeralda:hover {
-    background-color: var(--color-azulado);
+    background-color: var(--color-acento);
 }
 
 .escala-hover {
@@ -362,7 +362,7 @@ body.fondo-principal {
 
 .escala-hover:hover {
     transform: translateY(-5px);
-    border-color: var(--color-esmeralda);
+    border-color: var(--color-primario);
 }
 
 
@@ -370,7 +370,7 @@ body.fondo-principal {
 footer {
     width: 100%;
     height: auto;
-    background: var(--color-esmeralda);
+    background: var(--color-tarjetas);
     padding: 2rem 3rem;
     font-size: 1.25rem;
     letter-spacing: 0.1rem;
@@ -412,7 +412,7 @@ footer {
     transition: color 0.3s;
 }
 
-.footer-seccion  {
+.footer-seccion {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -423,14 +423,14 @@ footer {
 
 
 .footer-seccion h3 {
-    border-bottom: 1px solid var(--color-blanco); 
-    margin-bottom: 0.5rem; 
-    padding-bottom: 0.3rem; 
-    
+    border-bottom: 1px solid var(--color-texto);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+
 }
 
 
-.footer-seccion ul{
+.footer-seccion ul {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -441,12 +441,13 @@ footer {
 
 .footer-seccion a {
     text-decoration: none;
-    color: var(--color-blanco);
-    
+    color: var(--color-texto);
+
 }
 
-.footer-seccion a:hover, .contenedor-redes a:hover{
-    color: var(--color-oscuro);
+.footer-seccion a:hover,
+.contenedor-redes a:hover {
+    color: var(--color-tarjetas);
 }
 
 .footer-copy {
@@ -459,8 +460,8 @@ footer {
 
 
 @media (max-width: 64em) {
-    
-     .logo-contenedor {
+
+    .logo-contenedor {
         width: 15%;
     }
 
@@ -478,7 +479,7 @@ footer {
 
 }
 
-@media  (max-width: 40em) {
+@media (max-width: 40em) {
 
     .logo-contenedor {
         width: 20%;
@@ -495,7 +496,7 @@ footer {
         position: absolute;
         top: 10vh;
         left: 0;
-        background: var(--color-azulado);
+        background: var(--color-acento);
         padding: 1em;
         z-index: 99;
         height: auto;
@@ -513,9 +514,9 @@ footer {
         height: auto;
         padding: 0;
     }
-    
 
-   .cotenedor-footer {
+
+    .cotenedor-footer {
         grid-template-columns: 1fr;
         gap: 1.5em;
         margin: 1rem;
@@ -540,5 +541,66 @@ footer {
         font-size: 0.7em;
         margin-top: 1.5em;
     }
+}
 
+
+/* ============================================================ */
+/* ESTILOS PARA LA SECCIÓN DE FAVORITOS EN EL PERFIL            */
+/* ============================================================ */
+
+/* --- Botón "Quitar de Favoritos" --- */
+/* Estilo base: fondo oscuro con tono rojizo al hacer hover */
+.boton-eliminar-favorito {
+    background-color: var(--color-tarjetas);
+    /* Fondo gris oscuro (igual al de la tarjeta) */
+    color: var(--color-texto-secundario);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* --- Estado HOVER del botón de eliminar --- */
+.boton-eliminar-favorito:hover {
+    background-color: #dc2626;
+    /* Rojo fuerte al pasar el mouse */
+    color: var(--color-texto);
+    /* Texto blanco */
+    border-color: #dc2626;
+    /* Borde rojo también */
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.3);
+    /* Resplandor rojizo */
+}
+
+/* --- Animación de entrada para las tarjetas de favoritos --- */
+/* Las tarjetas aparecen con un efecto de "fade in + slide up" */
+.tarjeta-favorito-perfil {
+    /* Ejecutamos la animación 'aparecer' al crearse la tarjeta */
+    animation: aparecer 0.5s ease forwards;
+}
+
+/* --- ANIMACIÓN KEYFRAMES: efecto de aparición suave --- */
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        /* Empieza totalmente transparente */
+        transform: translateY(20px);
+        /* Empieza 20px más abajo */
+    }
+
+    100% {
+        opacity: 1;
+        /* Termina totalmente visible */
+        transform: translateY(0);
+        /* Termina en su posición final */
+    }
+}
+
+/* --- Utilidad: centrar contenido con justify-content --- */
+.justificar-centro {
+    justify-content: center;
 }

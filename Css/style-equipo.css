@@ -173,7 +173,7 @@
 
 
 .boton-conocer-mas:hover {
-    background: var(--color-gris);
+    background: var(--color-tarjetas);
 }
 
 
@@ -221,4 +221,76 @@
         margin-top: 0;
     }
 
+}
+
+
+/* ============================================================ */
+/* ESTILOS PARA EL BOTÓN DE FAVORITOS (estrella en cada tarjeta) */
+/* ============================================================ */
+
+/* --- Botón base: la estrella que aparece en la esquina superior derecha --- */
+.boton-favorito {
+    /* Posicionamiento absoluto dentro de la tarjeta (.card-paises tiene position: relative) */
+    position: absolute;
+    top: 10px;                        /* 10px desde el borde superior de la tarjeta */
+    right: 10px;                      /* 10px desde el borde derecho */
+    z-index: 5;                       /* Por encima del contenido pero debajo del overlay */
+
+    /* Apariencia visual */
+    background-color: rgba(15, 23, 42, 0.85);  /* Fondo semi-transparente azul oscuro */
+    color: var(--color-texto-secundario);        /* Color gris claro para el texto */
+    border: 1px solid rgba(52, 211, 153, 0.3);  /* Borde verde semi-transparente */
+    border-radius: 20px;                          /* Esquinas muy redondeadas (tipo "pastilla") */
+    padding: 6px 14px;                            /* Espacio interior */
+    font-size: 0.85rem;                           /* Tamaño de fuente */
+    font-family: 'Roboto', sans-serif;            /* Fuente del proyecto */
+    font-weight: 500;                             /* Peso medio */
+    cursor: pointer;                              /* Manito al pasar el ratón */
+    letter-spacing: 0.3px;                        /* Pequeño espaciado entre letras */
+
+    /* Transiciones suaves para TODOS los cambios de estilo */
+    /* Esto hace que los cambios de color, tamaño, sombra, etc. sean graduales */
+    transition: all 0.3s ease;
+}
+
+/* --- Estado HOVER: cuando el ratón pasa por encima del botón --- */
+.boton-favorito:hover {
+    background-color: rgba(16, 185, 129, 0.2);  /* Fondo verde suave semi-transparente */
+    border-color: var(--color-primario);          /* Borde verde esmeralda sólido */
+    color: var(--color-acento);                   /* Texto verde claro */
+    /* box-shadow crea un resplandor verde alrededor del botón */
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+/* --- Estado ACTIVO: cuando el equipo ES favorito --- */
+/* Esta clase se agrega/quita con classList.add/remove desde JavaScript */
+.favorito-activo {
+    background-color: rgba(16, 185, 129, 0.25) !important;  /* Fondo verde intenso */
+    color: #fbbf24 !important;                                /* Color DORADO para la estrella */
+    border-color: #fbbf24 !important;                         /* Borde dorado */
+    /* Resplandor dorado alrededor del botón */
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+    /* Ejecutamos la animación 'pulso' una vez, durante 0.4 segundos */
+    animation: pulso 0.4s ease;
+}
+
+/* --- Estado HOVER cuando YA es favorito activo --- */
+.favorito-activo:hover {
+    background-color: rgba(251, 191, 36, 0.2) !important;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+/* --- ANIMACIÓN KEYFRAMES: efecto "pulso" al marcar como favorito --- */
+/* @keyframes define una animación personalizada paso a paso */
+/* Se ejecuta cuando se agrega la clase .favorito-activo */
+@keyframes pulso {
+    0% {
+        transform: scale(1);     /* Tamaño normal al inicio */
+    }
+    50% {
+        transform: scale(1.2);   /* Se agranda un 20% a la mitad */
+    }
+    100% {
+        transform: scale(1);     /* Vuelve al tamaño normal al final */
+    }
 }

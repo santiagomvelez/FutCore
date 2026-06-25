@@ -280,4 +280,209 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 0);
     });
 
+
+    // ============================================================
+    // ============================================================
+    //        SECCIÓN NUEVA: MOSTRAR FAVORITOS EN EL PERFIL
+    // ============================================================
+    // ============================================================
+    // Esta sección lee los favoritos guardados en localStorage
+    // y los muestra dinámicamente en la grilla del perfil.
+    // También permite eliminar favoritos desde esta página.
+    // ============================================================
+
+
+    // ============================================================
+    // A. FUNCIÓN PARA CARGAR Y MOSTRAR LOS FAVORITOS EN LA GRILLA
+    // ============================================================
+    // Lee el array de favoritos desde localStorage y crea una
+    // tarjeta HTML por cada equipo guardado. Si no hay favoritos,
+    // muestra un mensaje indicándolo.
+
+    function cargarFavoritosEnPerfil() {
+
+        // Paso 1: Buscamos el contenedor HTML donde vamos a inyectar las tarjetas
+        // getElementById() busca un elemento por su atributo id="grilla-favoritos"
+        const grillaFavoritos = document.getElementById('grilla-favoritos');
+
+        // Paso 2: Buscamos el párrafo del mensaje "sin favoritos"
+        const mensajeSinFavoritos = document.getElementById('mensaje-sin-favoritos');
+
+        // Paso 3: Limpiamos la grilla por si ya tenía contenido previo
+        // innerHTML = "" borra todo el HTML que haya dentro del elemento
+        grillaFavoritos.innerHTML = '';
+
+        // Paso 4: Leemos los favoritos guardados en localStorage
+        // localStorage.getItem('favoritos') devuelve un STRING o null
+        const datosGuardados = localStorage.getItem('favoritos');
+
+        // Paso 5: Convertimos el string a un array de objetos
+        // Si datosGuardados es null (no hay nada), usamos un array vacío []
+        let listaFavoritos = [];
+        if (datosGuardados !== null) {
+            // JSON.parse() convierte el string JSON a un array de JS
+            listaFavoritos = JSON.parse(datosGuardados);
+        }
+
+        // Paso 6: Verificamos si hay favoritos o no
+        if (listaFavoritos.length === 0) {
+            // --- NO hay favoritos guardados ---
+            // Mostramos el mensaje y ocultamos la grilla vacía
+            mensajeSinFavoritos.style.display = 'block';
+            grillaFavoritos.style.display = 'none';
+            return; // Cortamos la ejecución acá, no hay nada más que hacer
+        }
+
+        // --- SÍ hay favoritos guardados ---
+        // Ocultamos el mensaje y mostramos la grilla
+        mensajeSinFavoritos.style.display = 'none';
+        grillaFavoritos.style.display = 'grid';
+
+        // Paso 7: Recorremos el array de favoritos con forEach
+        // Por cada favorito, creamos una tarjeta HTML y la agregamos a la grilla
+        listaFavoritos.forEach(function (favorito) {
+
+            // --- Creamos el elemento <article> que será la tarjeta ---
+            // document.createElement() crea un nuevo elemento HTML en memoria
+            const tarjeta = document.createElement('article');
+
+            // Le asignamos las clases CSS que ya existen en nuestro proyecto
+            // para que tenga el mismo estilo que las tarjetas anteriores
+            tarjeta.classList.add(
+                'fondo-gris',           // Fondo gris oscuro
+                'radio-mediano',        // Bordes redondeados
+                'ocultar-excedente',    // overflow: hidden
+                'escala-hover',         // Efecto de elevación al pasar el mouse
+                'borde-gris',           // Borde gris sutil
+                'caja-flexible',        // display: flex
+                'flex-columna',         // flex-direction: column
+                'estirar',              // align-items: stretch
+                'tarjeta-favorito-perfil'  // Clase nueva para animación de entrada
+            );
+
+            // --- Creamos el contenedor de la imagen del escudo ---
+            const contenedorImagen = document.createElement('div');
+            contenedorImagen.classList.add('imagen-cubrir', 'alto-150', 'borde-inf-azulado');
+
+            // --- Creamos el elemento <img> para el escudo ---
+            const imagenEscudo = document.createElement('img');
+            imagenEscudo.src = favorito.imagen;              // URL del escudo guardada en localStorage
+            imagenEscudo.alt = favorito.nombre;              // Texto alternativo = nombre del equipo
+            imagenEscudo.classList.add('ancho-100', 'alto-100'); // Clases de tamaño
+            // Aplicamos estilos inline para que el escudo se vea centrado
+            imagenEscudo.style.objectFit = 'contain';        // Mantiene la proporción de la imagen
+            imagenEscudo.style.background = '#fff';          // Fondo blanco detrás del escudo
+            imagenEscudo.style.padding = '10px';             // Espacio alrededor del escudo
+
+            // Metemos la imagen dentro de su contenedor
+            contenedorImagen.appendChild(imagenEscudo);
+
+            // --- Creamos el contenedor del texto (nombre, liga, botón) ---
+            const contenedorTexto = document.createElement('div');
+            contenedorTexto.classList.add(
+                'relleno-15',          // Padding de 15px
+                'caja-flexible',       // display: flex
+                'flex-columna',        // flex-direction: column
+                'alinear-centro',      // align-items: center
+                'texto-centrado',      // text-align: center
+                'crecer-1'             // flex: 1 (ocupa el espacio disponible)
+            );
+
+            // --- Creamos el título con el nombre del equipo ---
+            const nombreEquipo = document.createElement('h4');
+            nombreEquipo.classList.add('texto-mediano', 'margen-abajo-5', 'texto-esmeralda');
+            nombreEquipo.textContent = favorito.nombre;  // Ej: "River Plate"
+
+            // --- Creamos el párrafo con la liga y país ---
+            const infoLiga = document.createElement('p');
+            infoLiga.classList.add('texto-secundario', 'texto-chico', 'margen-abajo-15');
+            infoLiga.textContent = favorito.liga + ' (' + favorito.pais + ')';  // Ej: "Liga Profesional (Argentina)"
+
+            // --- Creamos el botón para ELIMINAR el favorito ---
+            const botonEliminar = document.createElement('button');
+            botonEliminar.classList.add('boton', 'boton-eliminar-favorito', 'ancho-100', 'margen-sup-auto');
+            botonEliminar.innerHTML = '<i class="fa-solid fa-trash-can"></i> Quitar de Favoritos';
+
+            // --- EVENTO CLICK: Eliminar el favorito ---
+            // Cuando el usuario hace clic en "Quitar de Favoritos":
+            botonEliminar.addEventListener('click', function () {
+                // Llamamos a la función que elimina este favorito
+                eliminarFavoritoDesdePerfil(favorito.id, tarjeta);
+            });
+
+            // --- Armamos la estructura: metemos todo dentro de cada contenedor ---
+            contenedorTexto.appendChild(nombreEquipo);
+            contenedorTexto.appendChild(infoLiga);
+            contenedorTexto.appendChild(botonEliminar);
+
+            // Metemos imagen + texto dentro de la tarjeta
+            tarjeta.appendChild(contenedorImagen);
+            tarjeta.appendChild(contenedorTexto);
+
+            // Finalmente, agregamos la tarjeta completa a la grilla del DOM
+            // appendChild() inserta el elemento al final del contenedor padre
+            grillaFavoritos.appendChild(tarjeta);
+        });
+    }
+
+
+    // ============================================================
+    // B. FUNCIÓN PARA ELIMINAR UN FAVORITO DESDE EL PERFIL
+    // ============================================================
+    // Cuando el usuario hace clic en "Quitar de Favoritos",
+    // esta función lo elimina del localStorage y lo quita
+    // visualmente de la grilla con una animación.
+
+    function eliminarFavoritoDesdePerfil(idDelEquipo, elementoTarjeta) {
+
+        // Paso 1: Leemos el array actual de favoritos desde localStorage
+        const datosGuardados = localStorage.getItem('favoritos');
+        let listaFavoritos = [];
+
+        if (datosGuardados !== null) {
+            listaFavoritos = JSON.parse(datosGuardados);
+        }
+
+        // Paso 2: Filtramos el array para QUITAR el equipo con el id indicado
+        // .filter() crea un NUEVO array que solo incluye los elementos
+        // que cumplen la condición (todos los que NO tengan el id a eliminar)
+        const listaActualizada = listaFavoritos.filter(function (favorito) {
+            return favorito.id !== idDelEquipo;
+        });
+
+        // Paso 3: Guardamos el array actualizado (sin el equipo eliminado)
+        // en localStorage, sobrescribiendo el anterior
+        localStorage.setItem('favoritos', JSON.stringify(listaActualizada));
+
+        // Paso 4: Animación visual de desaparición
+        // Usamos element.style.propiedadCss para modificar el estilo directamente
+        elementoTarjeta.style.transition = 'all 0.4s ease';   // Transición suave de 0.4 segundos
+        elementoTarjeta.style.opacity = '0';                   // Se vuelve transparente
+        elementoTarjeta.style.transform = 'scale(0.8)';       // Se encoge un poco
+
+        // Paso 5: Después de que termina la animación (400ms),
+        // eliminamos el elemento del DOM y recargamos la grilla
+        setTimeout(function () {
+            // .remove() elimina el elemento HTML del DOM por completo
+            elementoTarjeta.remove();
+
+            // Verificamos si quedan más favoritos
+            // Si la lista quedó vacía, volvemos a llamar cargarFavoritosEnPerfil
+            // para que muestre el mensaje "No tenés equipos favoritos"
+            if (listaActualizada.length === 0) {
+                cargarFavoritosEnPerfil();
+            }
+        }, 400); // 400 milisegundos = el mismo tiempo que dura la transición CSS
+    }
+
+
+    // ============================================================
+    // C. EJECUTAMOS LA CARGA DE FAVORITOS AL ABRIR LA PÁGINA
+    // ============================================================
+    // Llamamos a la función para que apenas cargue la página del
+    // perfil, se lean los favoritos del localStorage y se muestren.
+
+    cargarFavoritosEnPerfil();
+
+
 });
