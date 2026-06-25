@@ -15,7 +15,7 @@ function renderizarHeader(basePath = "") {
 
     const logo = document.createElement("img");
     logo.classList.add("logo-header");
-    logo.src = basePath + "../img/logo/logo-header-blanco.png";
+    logo.src = basePath + "img/logo/logo-header-blanco.png";
     logo.alt = "logo-header";
 
     logoContendor.appendChild(logoVolver);
@@ -42,11 +42,11 @@ function renderizarHeader(basePath = "") {
     const ul = document.createElement("ul");
 
     const enlaces = [
-        { texto: "Inicio", href: basePath + "../index.html" },
-        { texto: "Equipos", href: basePath + "../equipo/equipo.html" },
-        {texto: "Jugadores", href: basePath + "../jugadores/jugadores.html"},
-        { texto: "Ingresar", href: basePath + "../ingreso/auth.html"},
-        { texto: "Perfil", href: basePath + "../perfil/perfil.html" }
+        { texto: "Inicio", href: basePath + "index.html" },
+        { texto: "Equipos", href: basePath + "equipo/equipo.html" },
+        {texto: "Jugadores", href: basePath + "jugadores/jugadores.html"},
+        { texto: "Ingresar", href: basePath + "ingreso/auth.html"},
+        { texto: "Perfil", href: basePath + "perfil/perfil.html" }
     ]
 
     enlaces.forEach(link => {
@@ -84,7 +84,7 @@ function renderizarFooter(basePath = "") {
 
     const logo = document.createElement("img");
     logo.classList.add("logo-footer");
-    logo.src = basePath + "../img/logo/logo-footer.png";
+    logo.src = basePath + "img/logo/logo-footer.png";
     logo.alt = "logo-footer";
 
     const contenedorRedes = document.createElement("div");
