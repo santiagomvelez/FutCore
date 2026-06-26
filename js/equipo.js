@@ -157,7 +157,7 @@ const equipos = [
 
     {
         id: 4,
-        escudo: "../img/escudos/FC_Barcelona.png",
+        escudo: "img/escudos/FC_Barcelona.png",
         alt: "Escudo Barcelona",
         nombre: "FC Barcelona",
         fundacionClub: "20 de noviembre 1899",
@@ -204,7 +204,7 @@ const equipos = [
 
     {
         id: 5,
-        escudo: "../img/escudos/Real_Madrid_CF.png",
+        escudo: "img/escudos/Real_Madrid_CF.png",
         alt: "Escudo Real",
         nombre: "Real Madrid",
         fundacionClub: "6 de marzo de 1902",
@@ -254,7 +254,7 @@ const equipos = [
 
     {
         id: 6,
-        escudo: "../img/escudos/Atletico_Madrid_Logo_2024.png",
+        escudo: "img/escudos/Atletico_Madrid_Logo_2024.png",
         alt: "Escudo Atletico",
         nombre: "Atlético de Madrid",
         fundacionClub: "26 de abril  de 1903",
@@ -345,7 +345,7 @@ const equipos = [
 
     {
         id: 8,
-        escudo: "../img/escudos/manchester-utd.png",
+        escudo: "img/escudos/manchester-utd.png",
         alt: "Escudo United",
         nombre: "Manchester United",
         fundacionClub: "16 de abril de 1878",
@@ -390,7 +390,7 @@ const equipos = [
 
     {
         id: 9,
-        escudo: "../img/escudos/Manchester-City.png",
+        escudo: "img/escudos/Manchester-City.png",
         alt: "Escudo City",
         nombre: "Manchester City",
         fundacionClub: "23 de noviembre de 1880",

@@ -15,7 +15,7 @@ function renderizarGrilla(lista) {
         
 
         const escudoImagen = document.createElement("img");
-        escudoImagen.src = equipo.escudo;
+        escudoImagen.src = corregirRutaImagen(equipo.escudo);
         escudoImagen.alt = equipo.alt;
         escudoImagen.classList.add("img-bandera");
 

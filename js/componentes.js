@@ -1,3 +1,27 @@
+// Función para corregir las rutas de las imágenes locales (escudos) dependiendo de la ubicación de la página actual
+function corregirRutaImagen(ruta) {
+    if (!ruta) return "";
+    if (ruta.startsWith("http://") || ruta.startsWith("https://") || ruta.startsWith("data:")) {
+        return ruta;
+    }
+    
+    // Limpiamos la ruta para que siempre comience con "img/" (sin "../")
+    let rutaLimpia = ruta;
+    if (rutaLimpia.startsWith("../")) {
+        rutaLimpia = rutaLimpia.substring(3);
+    }
+    
+    // Determinamos si la página actual está en un subdirectorio
+    const path = window.location.pathname;
+    const esSubdirectorio = path.includes("/equipo/") || path.includes("/jugadores/") || path.includes("/perfil/") || path.includes("/ingreso/");
+    
+    if (esSubdirectorio) {
+        return "../" + rutaLimpia;
+    } else {
+        return rutaLimpia;
+    }
+}
+
 //Header
 function renderizarHeader(basePath = "") {
 
@@ -10,8 +34,8 @@ function renderizarHeader(basePath = "") {
 
     // 2. Logo
 
-    const logoVolver =document.createElement("a");
-    logoVolver.href = basePath + "../index.html";
+    const logoVolver = document.createElement("a");
+    logoVolver.href = basePath + "index.html";
 
     const logo = document.createElement("img");
     logo.classList.add("logo-header");
@@ -44,8 +68,8 @@ function renderizarHeader(basePath = "") {
     const enlaces = [
         { texto: "Inicio", href: basePath + "index.html" },
         { texto: "Equipos", href: basePath + "equipo/equipo.html" },
-        {texto: "Jugadores", href: basePath + "jugadores/jugadores.html"},
-        { texto: "Ingresar", href: basePath + "ingreso/auth.html"},
+        { texto: "Jugadores", href: basePath + "jugadores/jugadores.html" },
+        { texto: "Ingresar", href: basePath + "ingreso/auth.html" },
         { texto: "Perfil", href: basePath + "perfil/perfil.html" }
     ]
 
@@ -122,9 +146,9 @@ function renderizarFooter(basePath = "") {
             titulo: "Menu",
 
             enlaces: [
-                { texto: "Principal", href: "../index.html" },
-                { texto: "Equipo", href: "../equipo/equipo.html" },
-                { texto: "Jugadores", href: "../jugadores/jugadores.html" }
+                { texto: "Principal", href: basePath + "index.html" },
+                { texto: "Equipo", href: basePath + "equipo/equipo.html" },
+                { texto: "Jugadores", href: basePath + "jugadores/jugadores.html" }
             ]
         },
 

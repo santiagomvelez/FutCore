@@ -24,7 +24,7 @@ function renderizarJugadores(listaEquipos) {
                         ${jugador.nacionalidad}
                     </p>
                     <p class="jugador-equipo">
-                        <img src="${equipo.escudo}" alt="${equipo.alt}" class="escudo-mini">
+                        <img src="${corregirRutaImagen(equipo.escudo)}" alt="${equipo.alt}" class="escudo-mini">
                         ${equipo.nombre}
                     </p>
                 </div>

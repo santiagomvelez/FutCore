@@ -33,7 +33,7 @@ function renderizarDetalleEquipo() {
     // * Imagen Escudo  * //
     const imgEscudo = document.createElement("img");
     imgEscudo.classList.add("img-escudo");
-    imgEscudo.src = equipo.escudo;
+    imgEscudo.src = corregirRutaImagen(equipo.escudo);
     imgEscudo.alt = equipo.alt;
     
     // * anido la imagen en el div * // 

@@ -85,7 +85,7 @@ function construirCarrusel(datos, idPista, idBtnAnt, idBtnSig) {
         const textoExtra = item.extra ? `<p style="color: #666; font-size: 0.9rem; margin-top: 5px;">${item.extra}</p>` : "";
 
         tarjeta.innerHTML = `
-            <img src="${item.imagen}" alt="${item.nombre}">
+            <img src="${corregirRutaImagen(item.imagen)}" alt="${item.nombre}">
             <h3>${item.nombre}</h3>
             ${textoExtra}
         `;

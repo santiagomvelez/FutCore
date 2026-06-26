@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // --- Creamos el elemento <img> para el escudo ---
             const imagenEscudo = document.createElement('img');
-            imagenEscudo.src = favorito.imagen;              // URL del escudo guardada en localStorage
+            imagenEscudo.src = corregirRutaImagen(favorito.imagen);              // URL del escudo guardada en localStorage
             imagenEscudo.alt = favorito.nombre;              // Texto alternativo = nombre del equipo
             imagenEscudo.classList.add('ancho-100', 'alto-100'); // Clases de tamaño
             // Aplicamos estilos inline para que el escudo se vea centrado
